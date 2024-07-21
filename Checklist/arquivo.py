@@ -22,6 +22,25 @@ st.write('''
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ''')
 def criar_pdf_em_memoria(dados):
     df = pd.DataFrame(dados)
