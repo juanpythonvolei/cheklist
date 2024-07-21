@@ -37,8 +37,7 @@ if 'lista_qtd' not in st.session_state:
     st.session_state.lista_qtd = []
 if 'lista_problemas' not in st.session_state:
     st.session_state.lista_problemas = []
-if 'lista_novo' not in st.session_state:
-    st.session_state.lista_novo = []
+
 def reset_checkboxes():
     for key in st.session_state.keys():
         if key.startswith('checkbox_'):
