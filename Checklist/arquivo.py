@@ -57,7 +57,7 @@ if st.button('Novo Checklist'):
         st.warning('Novo Checklist Iniciado')
 
 
-
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
                 st.write('Vazamento de óleo')
