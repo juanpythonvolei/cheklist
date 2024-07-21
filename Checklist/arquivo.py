@@ -10,12 +10,13 @@ agora_brasilia = datetime.now(fuso_horario_brasilia)
 data_hora_formatada = agora_brasilia.strftime("%Y-%m-%d %H:%M:%S")
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-usuario = st.selectbox('Quem é você?', ['juan', 'outro'])
+usuario = st.selectbox('Quem é você?', ['Juan Zonho', 'Jonatan Lima','Cesar Fusel','Luiz Felipe'])
 if usuario:
             st.session_state.lista_qtd = []
             st.session_state.lista_problemas = []
             st.session_state.mostrar_reclamacao = False
             st.warning('Novo Checklist Iniciado')
+            st.write(f'Seja Bem-vindo, {usuario}')
 
 def criar_pdf_em_memoria(dados):
     df = pd.DataFrame(dados)
