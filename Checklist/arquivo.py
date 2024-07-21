@@ -49,7 +49,7 @@ def preenchimento(normal, anormal, campo):
         st.warning(f'Você não Preencheu o campo de {campo}')
 
 usuario = st.selectbox('Quem é você?', ['juan', 'outro'])
-    if usuario:
+if usuario:
             st.session_state.lista_qtd = []
             st.session_state.lista_problemas = []
             st.session_state.mostrar_reclamacao = False
