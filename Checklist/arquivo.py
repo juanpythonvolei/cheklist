@@ -49,12 +49,11 @@ def preenchimento(normal, anormal, campo):
         st.warning(f'Você não Preencheu o campo de {campo}')
 
 usuario = st.selectbox('Quem é você?', ['juan', 'outro'])
-if st.button('Novo Checklist'):
-        lista_novo.append('novo')
-        st.session_state.lista_qtd = []
-        st.session_state.lista_problemas = []
-        st.session_state.mostrar_reclamacao = False
-        st.warning('Novo Checklist Iniciado')
+    if usuario:
+            st.session_state.lista_qtd = []
+            st.session_state.lista_problemas = []
+            st.session_state.mostrar_reclamacao = False
+            st.warning('Novo Checklist Iniciado')
 
 
 col1, col2, col3, col4 = st.columns(4)
