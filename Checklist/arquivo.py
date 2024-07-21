@@ -189,37 +189,6 @@ preenchimento(normal=normal_Bateria, anormal=anormal_Bateria, campo='Bateria')
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-        st.write('Pintura')
-with col2:
-    anormal_Pintura = st.checkbox(label='Anormal', key='2pinturaaa')
-    if anormal_Pintura:
-        with col4:
-            reclamacao_Pintura = st.text_input(label='Digite o Problema', key='texto_Pintttura')
-            if reclamacao_Pintura != '':
-                if reclamacao_Pintura in st.session_state.lista_problemas:
-                      pass
-                else:
-                        st.session_state.lista_problemas.append(reclamacao_Pintura)
-                        st.session_state.lista_qtd.append('...')
-                        st.warning('Problema relatado')
-
-with col3:
-        normal_Pintura = st.checkbox(label='Normal', key='1a')
-        if normal_Pintura:
-                if 'Pintura ok' not in st.session_state.lista_qtd:
-                        st.session_state.lista_qtd.append('Pintura ok')
-                        st.session_state.lista_problemas.append('...')
-                else:
-                       pass
-        else:
-                if 'Pintura ok' in st.session_state.lista_qtd:
-                        st.session_state.lista_qtd.remove('Pintura ok')
-                        st.session_state.lista_problemas.append('...')
-
-preenchimento(normal=normal_Pintura, anormal=anormal_Pintura, campo='Pintura')
-
-col1, col2, col3, col4 = st.columns(4)
-with col1:
         st.write('Elevação dos Garfos')
 with col2:
     anormal_Elevação_dos_Garfos = st.checkbox(label='Anormal', key='2ellevação_dos_Garfossssss')
