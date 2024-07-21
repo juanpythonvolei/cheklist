@@ -3,8 +3,18 @@ import pandas as pd
 from teste import enviar_emaail
 from fpdf import FPDF
 from io import BytesIO
+from datetime import datetime
+agora = datetime.now()
 
+# Formata a data e hora como string
+data_hora_formatada = agora.strftime("%Y-%m-%d %H:%M:%S")
 
+usuario = st.selectbox('Quem é você?', ['juan', 'outro'])
+if usuario:
+            st.session_state.lista_qtd = []
+            st.session_state.lista_problemas = []
+            st.session_state.mostrar_reclamacao = False
+            st.warning('Novo Checklist Iniciado')
 
 def criar_pdf_em_memoria(dados):
     df = pd.DataFrame(dados)
@@ -12,7 +22,7 @@ def criar_pdf_em_memoria(dados):
     class PDF(FPDF):
         def header(self):
             self.set_font('Arial', 'B', 12)
-            self.cell(0, 10, 'Relatório de Checklist', 0, 1, 'C')
+            self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario} dia {data_hora_formatada}', 0, 1, 'C')
 
         def add_table(self, df):
             self.set_font('Arial', '', 12)
@@ -48,12 +58,6 @@ def preenchimento(normal, anormal, campo):
     else:
         st.warning(f'Você não Preencheu o campo de {campo}')
 
-usuario = st.selectbox('Quem é você?', ['juan', 'outro'])
-if usuario:
-            st.session_state.lista_qtd = []
-            st.session_state.lista_problemas = []
-            st.session_state.mostrar_reclamacao = False
-            st.warning('Novo Checklist Iniciado')
 
 
 col1, col2, col3, col4 = st.columns(4)
