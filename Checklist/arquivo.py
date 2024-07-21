@@ -737,7 +737,7 @@ max_length = max(len(st.session_state.lista_qtd), len(st.session_state.lista_pro
 st.session_state.lista_qtd.extend([''] * (max_length - len(st.session_state.lista_qtd)))
 st.session_state.lista_problemas.extend([''] * (max_length - len(st.session_state.lista_problemas)))
 
-dict_resposta = {'Tópicos': st.session_state.lista_qtd, 'Observações': st.session_state.lista_problemas}
+dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas}
 
 
 pdf_buffer = criar_pdf_em_memoria(dict_resposta)
