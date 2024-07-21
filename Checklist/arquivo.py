@@ -37,6 +37,8 @@ if 'lista_qtd' not in st.session_state:
     st.session_state.lista_qtd = []
 if 'lista_problemas' not in st.session_state:
     st.session_state.lista_problemas = []
+if 'lista_novo' not in st.session_state:
+    st.session_state.lista_novo = []
 def reset_checkboxes():
     for key in st.session_state.keys():
         if key.startswith('checkbox_'):
@@ -49,13 +51,12 @@ def preenchimento(normal, anormal, campo):
 
 usuario = st.selectbox('Quem é você?', ['juan', 'outro'])
 if st.button('Novo Checklist'):
-    st.session_state.lista_qtd = []
-    st.session_state.lista_problemas = []
-    st.session_state.mostrar_reclamacao = False
-    st.warning('Novo Checklist Iniciado')
-else:
-       st.warning(f"Atenção, {usuario}, você ainda não iniciou um novo Checklist")
-col1, col2, col3, col4 = st.columns(4)
+        lista_novo.append('novo')
+        st.session_state.lista_qtd = []
+        st.session_state.lista_problemas = []
+        st.session_state.mostrar_reclamacao = False
+        st.warning('Novo Checklist Iniciado')
+
 
 
 
