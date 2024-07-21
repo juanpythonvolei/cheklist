@@ -9,7 +9,7 @@ fuso_horario_brasilia = pytz.timezone('America/Sao_Paulo')
 agora_brasilia = datetime.now(fuso_horario_brasilia)
 data_hora_formatada = agora_brasilia.strftime("%Y-%m-%d %H:%M:%S")
 
-
+image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 usuario = st.selectbox('Quem é você?', ['juan', 'outro'])
 if usuario:
             st.session_state.lista_qtd = []
