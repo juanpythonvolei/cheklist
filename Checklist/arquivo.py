@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from teste import enviar_emaail
+from teste import enviar_emaail,enviar_emaail2
 from fpdf import FPDF
 from io import BytesIO
 from datetime import datetime
@@ -720,6 +720,7 @@ pdf_buffer = criar_pdf_em_memoria(dict_resposta)
 botao_email = st.button('Enviar E-mail')
 if botao_email:
     enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer)
+    enviar_emaail2(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer)        
     st.session_state.lista_qtd = []
     st.session_state.lista_problemas = []
     st.session_state.mostrar_reclamacao = False
