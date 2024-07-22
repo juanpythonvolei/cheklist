@@ -17,7 +17,7 @@ qr.add_data(url)
 qr.make(fit=True)
 
 # Cria uma imagem do QR code
-img = qr.make_image(fill_color="black", back_color="white")
+img_qrcode = qr.make_image(fill_color="black", back_color="white")
 
 
-Codigo = st.image(img)
+Codigo = st.image(f'{img_qrcode}')
