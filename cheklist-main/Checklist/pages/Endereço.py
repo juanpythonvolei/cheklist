@@ -23,7 +23,7 @@ img_qrcode = qr.make_image(fill_color="black", back_color="white")
 
 
 with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
-    img.save(tmpfile.name)
+    img_qrcode.save(tmpfile.name)
     tmpfile_path = tmpfile.name
 
 # Exibe a imagem do QR code no Streamlit
