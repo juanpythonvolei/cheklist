@@ -1,5 +1,7 @@
 import qrcode
 import streamlit as st
+from PIL import Image
+import tempfile
 # URL que você deseja codificar no QR code
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
@@ -20,4 +22,9 @@ qr.make(fit=True)
 img_qrcode = qr.make_image(fill_color="black", back_color="white")
 
 
-Codigo = st.image(f'{img_qrcode}')
+with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
+    img.save(tmpfile.name)
+    tmpfile_path = tmpfile.name
+
+# Exibe a imagem do QR code no Streamlit
+st.image(tmpfile_path)
