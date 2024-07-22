@@ -6,7 +6,7 @@ import tempfile
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 
-url = "https://cheklist-5zyysp6sntm2pdtcfnssg3.streamlit.app/?embed_options=dark_theme"
+url = "https://checklistthule.streamlit.app/"
 
 # Cria o QR code
 qr = qrcode.QRCode(
