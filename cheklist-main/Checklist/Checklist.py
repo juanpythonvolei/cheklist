@@ -723,11 +723,10 @@ pdf_buffer = criar_pdf_em_memoria(dict_resposta)
 
 botao_email = st.button('Enviar E-mail')
 if botao_email:
-    enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer)
-    enviar_emaail2(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer)        
+    enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer)       
+    estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada)        
     st.session_state.lista_qtd = []
     st.session_state.lista_problemas = []
     st.session_state.mostrar_reclamacao = False
     reset_checkboxes()
-    estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada)
     st.warning('Relatório Enviado')
