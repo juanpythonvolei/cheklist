@@ -5,6 +5,10 @@ from fpdf import FPDF
 from io import BytesIO
 from datetime import datetime
 import pytz
+from Estatísticas import estatistica
+
+
+
 fuso_horario_brasilia = pytz.timezone('America/Sao_Paulo')
 agora_brasilia = datetime.now(fuso_horario_brasilia)
 data_hora_formatada = agora_brasilia.strftime("%Y-%m-%d %H:%M:%S")
@@ -715,7 +719,7 @@ dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.sessi
 
 pdf_buffer = criar_pdf_em_memoria(dict_resposta)
 
-    
+
 
 botao_email = st.button('Enviar E-mail')
 if botao_email:
@@ -725,5 +729,5 @@ if botao_email:
     st.session_state.lista_problemas = []
     st.session_state.mostrar_reclamacao = False
     reset_checkboxes()
-    
+    estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada)
     st.warning('Relatório Enviado')
