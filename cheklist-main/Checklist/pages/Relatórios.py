@@ -9,7 +9,7 @@ from Estatísticas import estatistica
 import requests
 
 
-
+lista_normais = []
 lista = []
 lista_problema = []
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
@@ -24,6 +24,13 @@ for item in dados:
                                      espec = Checklist[f'{elemento}']
                                      Data = espec['Data']
                                      lista_ok  = espec['ok']
+                                     for item in lista_ok:
+                                          if item  != '...':
+                                            lista_normais.append(item)
+                                     lista_anormal = espec['Anormais'] 
+                                     for item in lista_anormal:
+                                          if item  != '...':
+                                            lista_problema.append(item) 
 
                                      
 st.write(f'{len(lista)} Cheklists foram encontrados')
