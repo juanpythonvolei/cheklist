@@ -7,6 +7,7 @@ from datetime import datetime
 import pytz
 from Estatísticas import estatistica
 import requests
+import google.generativeai as genai
 texto_problemas = ''
 lista_item_repetido =[]
 lista_normais = []
