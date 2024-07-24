@@ -29,4 +29,4 @@ for item in dados:
                                      for item in lista_nao:
                                        lista_problema.append(item) 
                                      
-st.write(f'{len(lista_ok) foram encontrados}')
+st.write(f'{len(lista) foram encontrados}')
