@@ -10,7 +10,7 @@ import requests
 
 
 
-lista_ok = []
+lista = []
 lista_problema = []
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 lista_nomes = []
@@ -23,6 +23,10 @@ for item in dados:
                                      espec = Checklist[f'{elemento}']
                                      Data = espec['Data']
                                      lista_ok  = espec['ok']
-                                     lista_ok  = espec['Anormais'] 
+                                     for item in lista_ok:
+                                       lista.append(item)
+                                     lista_nao  = espec['Anormais'] 
+                                     for item in lista_nao:
+                                       lista_problema.append(item) 
                                      
 st.write(espec)
