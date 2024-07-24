@@ -21,5 +21,6 @@ for item in dados:
                             for elemento in Checklist:
                                      espec = Checklist[f'{elemento}']
                                      Data = espec['Data']
+                                     lista_ok  = espec['Items ok']
                                      
 st.write(espec)
