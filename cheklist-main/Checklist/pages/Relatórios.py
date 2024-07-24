@@ -34,3 +34,5 @@ for item in dados:
 
                                      
 st.write(f'{len(lista)} Cheklists foram encontrados')
+st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
+st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
