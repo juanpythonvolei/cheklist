@@ -10,7 +10,8 @@ import requests
 
 
 
-
+lista_ok = []
+lista_problema = []
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 lista_nomes = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
@@ -22,5 +23,6 @@ for item in dados:
                                      espec = Checklist[f'{elemento}']
                                      Data = espec['Data']
                                      lista_ok  = espec['ok']
+                                     lista_ok  = espec['Anormais'] 
                                      
 st.write(espec)
