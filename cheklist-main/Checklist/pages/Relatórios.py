@@ -21,5 +21,5 @@ for item in dados:
                             for elemento in Checklist:
                                      espec = Checklist[f'{elemento}']
                                      Data = espec['Data']
-                                     itens_Anormais= espec['Items Anormais'] 
+                                     
 st.write(espec)
