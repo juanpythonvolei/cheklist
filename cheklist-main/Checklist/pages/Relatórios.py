@@ -35,12 +35,15 @@ if opcao_selecionada == 'Dados Gerais':
                                             if item  != '...':
                                               lista_problema.append(item) 
   
-  percentual = (len(lista_normais)/(len(lista_normais)+len(lista_problema)))*100
+  percentual = float((len(lista_normais)/(len(lista_normais)+len(lista_problema)))*100)
+  Total_positivas = len(lista_normais)
+  Total_negativas = len(lista_problema)
+  Total = len(lista)
   st.write(f'{len(lista)} Cheklists foram encontrados')
   st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
   st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
   st.write(f'Percentual de Positividade Total: {percentual}')
-  dict_resposta = {'Percentual de Positividade':float(percentual),'Total de chelists':len(lista),'Total Positivas':len(lista_normais),'Total Negativas':len(lista_problema)}
+  dict_resposta = {'Percentual de Positividade':float(percentual),'Total de chelists':Total,'Total Positivas':Total_positivas,'Total Negativas':Total_negativas}
   tabela = pd.DataFrame(dict_resposta)
   st.table(tabela)
 elif opcao_selecionada == 'Item com mais ocorrências':
