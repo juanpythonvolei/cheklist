@@ -35,7 +35,7 @@ if opcao_selecionada == 'Dados Gerais':
                                             if item  != '...':
                                               lista_problema.append(item) 
   
-  percentual = (len(lista_problemas)/len(lista_normais))
+  percentual = (len(lista_problema)/len(lista_normais))
   st.write(f'{len(lista)} Cheklists foram encontrados')
   st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
   st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
