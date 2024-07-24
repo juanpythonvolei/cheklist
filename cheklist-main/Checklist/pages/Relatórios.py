@@ -20,6 +20,6 @@ for item in dados:
                             Checklist = dados[f'{item}']
                             for elemento in Checklist:
                                      espec = Checklist[f'{elemento}']
-                                     itens_ok= espec['Items ok']
+                                     Data = espec['Data']
                                      itens_Anormais= espec['Items Anormais'] 
 st.write(espec)
