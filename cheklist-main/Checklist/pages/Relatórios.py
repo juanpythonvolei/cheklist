@@ -8,7 +8,7 @@ import pytz
 from Estatísticas import estatistica
 import requests
 import google.generativeai as genai
-texto_problemas = ''
+
 lista_item_repetido =[]
 lista_normais = []
 lista = []
@@ -40,6 +40,7 @@ if opcao_selecionada == 'Dados Gerais':
   st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
   st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
 elif opcao_selecionada == 'Item com mais ocorrências':
+  texto_problemas = ''
   for item in lista_problema:
     texto_problemas += item
   GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
