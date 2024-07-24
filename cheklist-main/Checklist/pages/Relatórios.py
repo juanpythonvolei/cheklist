@@ -8,7 +8,7 @@ import pytz
 from Estatísticas import estatistica
 import requests
 
-
+lista_item_repetido =[]
 lista_normais = []
 lista = []
 lista_problema = []
@@ -36,3 +36,7 @@ for item in dados:
 st.write(f'{len(lista)} Cheklists foram encontrados')
 st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
 st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
+for item in lista_problema:
+  quantidade = lista_problema.count(item)
+  lista_item_repetido.append(f'O item {item} foi observado {quantidade} vezes')
+lista_item_repetido = sorted(lista_item_repetido,reverse=True)
