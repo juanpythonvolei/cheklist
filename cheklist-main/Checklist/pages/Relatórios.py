@@ -19,34 +19,36 @@ lista_nomes = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 dados = roteiro['Checklists']
-for item in dados:
-                            lista.append(item)          
-                            Checklist = dados[f'{item}']
-                            for elemento in Checklist:
-                                     espec = Checklist[f'{elemento}']
-                                     Data = espec['Data']
-                                     lista_ok  = espec['ok']
-                                     for item in lista_ok:
-                                          if item  != '...':
-                                            lista_normais.append(item)
-                                     lista_anormal = espec['Anormais'] 
-                                     for item in lista_anormal:
-                                          if item  != '...':
-                                            lista_problema.append(item) 
-
-                                     
-st.write(f'{len(lista)} Cheklists foram encontrados')
-st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
-st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
-for item in lista_problema:
-  texto_problemas += item
-GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
-genai.configure(api_key=GOOGLE_API_KEY)
-
-model = genai.GenerativeModel('gemini-1.5-flash')
-
-chat = model.start_chat(history=[])
-
-response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual o problema, como óleo, rodas etc,que mais se repete dentre as queixas:\n\n{texto_problemas}\n')
-resposta = response.text
-st.write(f'{resposta}')
+if opcao_selecionada == 'Dados Gerais':
+  for item in dados:
+                              lista.append(item)          
+                              Checklist = dados[f'{item}']
+                              for elemento in Checklist:
+                                       espec = Checklist[f'{elemento}']
+                                       Data = espec['Data']
+                                       lista_ok  = espec['ok']
+                                       for item in lista_ok:
+                                            if item  != '...':
+                                              lista_normais.append(item)
+                                       lista_anormal = espec['Anormais'] 
+                                       for item in lista_anormal:
+                                            if item  != '...':
+                                              lista_problema.append(item) 
+  
+                                       
+  st.write(f'{len(lista)} Cheklists foram encontrados')
+  st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
+  st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
+elif opcao_selecionada == 'Item com mais ocorrências':
+  for item in lista_problema:
+    texto_problemas += item
+  GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
+  genai.configure(api_key=GOOGLE_API_KEY)
+  
+  model = genai.GenerativeModel('gemini-1.5-flash')
+  
+  chat = model.start_chat(history=[])
+  
+  response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual o problema, como óleo, rodas etc,que mais se repete dentre as queixas:\n\n{texto_problemas}\n')
+  resposta = response.text
+  st.write(f'{resposta}')
