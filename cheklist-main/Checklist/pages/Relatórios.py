@@ -46,6 +46,6 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 chat = model.start_chat(history=[])
 
-response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual é o elemento com o maior número de queixas dirijidas a ele:\n\n{texto_problemas}\n')
+response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual o problema, como óleo, rodas etc,que mais se repete dentre as queixas:\n\n{texto_problemas}\n')
 resposta = response.text
 st.write(f'{resposta}')
