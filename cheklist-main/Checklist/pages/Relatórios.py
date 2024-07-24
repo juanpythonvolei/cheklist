@@ -7,7 +7,7 @@ from datetime import datetime
 import pytz
 from Estatísticas import estatistica
 import requests
-
+texto_problemas = ''
 lista_item_repetido =[]
 lista_normais = []
 lista = []
@@ -37,7 +37,14 @@ st.write(f'{len(lista)} Cheklists foram encontrados')
 st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
 st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
 for item in lista_problema:
-  quantidade = lista_problema.count(item)
-  lista_item_repetido.append(f'O item {item} foi observado {quantidade} vezes')
-lista_item_repetido = sorted(lista_item_repetido,reverse=True)
-st.write(f'{lista_item_repetido[0]}')
+  texto_problemas += item
+GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
+genai.configure(api_key=GOOGLE_API_KEY)
+
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+chat = model.start_chat(history=[])
+
+response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual é o tema que mais está presente nas queixas:\n\n{texto_problemas}\n')
+resposta = response.text
+st.write(f'{resposta}')
