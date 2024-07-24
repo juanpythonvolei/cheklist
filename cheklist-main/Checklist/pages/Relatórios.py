@@ -40,7 +40,29 @@ if opcao_selecionada == 'Dados Gerais':
   st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
   st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
 elif opcao_selecionada == 'Item com mais ocorrências':
+  lista_item_repetido =[]
+  lista_normais = []
+  lista = []
+  lista_problema = []
   texto_problemas = ''
+  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+  roteiro = requiscao.json()
+  dados = roteiro['Checklists']
+  if opcao_selecionada == 'Dados Gerais':
+    for item in dados:
+                                lista.append(item)          
+                                Checklist = dados[f'{item}']
+                                for elemento in Checklist:
+                                         espec = Checklist[f'{elemento}']
+                                         Data = espec['Data']
+                                         lista_ok  = espec['ok']
+                                         for item in lista_ok:
+                                              if item  != '...':
+                                                lista_normais.append(item)
+                                         lista_anormal = espec['Anormais'] 
+                                         for item in lista_anormal:
+                                              if item  != '...':
+                                                lista_problema.append(item) 
   for item in lista_problema:
     texto_problemas += item
   GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
