@@ -35,10 +35,11 @@ if opcao_selecionada == 'Dados Gerais':
                                             if item  != '...':
                                               lista_problema.append(item) 
   
-                                       
+  percentual = (len(lista_problemas)/len(lista_normais))
   st.write(f'{len(lista)} Cheklists foram encontrados')
   st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
   st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
+  st.write(f'Percentual de Positividade Total: {percentual}')
 elif opcao_selecionada == 'Item com mais ocorrências':
   lista_item_repetido =[]
   lista_normais = []
