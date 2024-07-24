@@ -40,4 +40,4 @@ for item in lista_problema:
   quantidade = lista_problema.count(item)
   lista_item_repetido.append(f'O item {item} foi observado {quantidade} vezes')
 lista_item_repetido = sorted(lista_item_repetido,reverse=True)
-st.write(f'{lista_item_repetido}')
+st.write(f'{lista_item_repetido[0]}')
