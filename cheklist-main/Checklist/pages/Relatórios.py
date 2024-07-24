@@ -40,7 +40,7 @@ if opcao_selecionada == 'Dados Gerais':
   st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
   st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
   st.write(f'Percentual de Positividade Total: {percentual}')
-  dict_resposta = {'Percentual de Positividade':percentual,'Total de chelists':len(lista),'Total Positivas':len(lista_normais),'Total Negativas':len(lista_problema)}
+  dict_resposta = {'Percentual de Positividade':float(percentual),'Total de chelists':len(lista),'Total Positivas':len(lista_normais),'Total Negativas':len(lista_problema)}
   tabela = pd.DataFrame(dict_resposta)
   st.table(tabela)
 elif opcao_selecionada == 'Item com mais ocorrências':
