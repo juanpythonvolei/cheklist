@@ -18,15 +18,12 @@ requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.fireba
 roteiro = requiscao.json()
 dados = roteiro['Checklists']
 for item in dados:
+                            lista.append(item)          
                             Checklist = dados[f'{item}']
                             for elemento in Checklist:
                                      espec = Checklist[f'{elemento}']
                                      Data = espec['Data']
                                      lista_ok  = espec['ok']
-                                     for item in lista_ok:
-                                       lista.append(item)
-                                     lista_nao  = espec['Anormais'] 
-                                     for item in lista_nao:
-                                       lista_problema.append(item) 
+
                                      
-st.write(f'{len(lista)} foram encontrados')
+st.write(f'{len(lista)} Cheklists foram encontrados')
