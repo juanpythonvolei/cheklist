@@ -19,5 +19,7 @@ dados = roteiro['Checklists']
 for item in dados:
                             Checklist = dados[f'{item}']
                             for elemento in Checklist:
-                                   espec = Checklist[f'{elemento}']
+                                     espec = Checklist[f'{elemento}']
+                                     itens_ok= espec['Items ok']
+                                     itens_Anormais= espec['Items Anormais'] 
 st.write(espec)
