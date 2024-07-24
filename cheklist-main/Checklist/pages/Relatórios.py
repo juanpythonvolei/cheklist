@@ -48,8 +48,7 @@ elif opcao_selecionada == 'Item com mais ocorrências':
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Checklists']
-  if opcao_selecionada == 'Dados Gerais':
-    for item in dados:
+  for item in dados:
                                 lista.append(item)          
                                 Checklist = dados[f'{item}']
                                 for elemento in Checklist:
