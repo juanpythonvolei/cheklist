@@ -16,5 +16,8 @@ lista_nomes = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 dados = roteiro['Checklists']
-
-st.write(dados)
+for item in dados:
+                            Checklist = dados[f'{item}']
+                            for elemento in Checklist:
+                                   espec = Checklist[f'{elemento}']
+st.write(espec)
