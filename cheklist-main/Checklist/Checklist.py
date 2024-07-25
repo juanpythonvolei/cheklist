@@ -33,7 +33,8 @@ if usuario:
             st.session_state.lista_problemas = []
             st.session_state.mostrar_reclamacao = False
             st.warning('Novo Checklist Iniciado ✔️')
-            st.write(f'Seja Bem-vindo, {usuario}')
+            st.markdown(f'<div class="my-square">Seja Bem-vindo, {usuario}</div>', unsafe_allow_html=True)
+
 def criar_pdf_em_memoria(dados):
     df = pd.DataFrame(dados)
 
