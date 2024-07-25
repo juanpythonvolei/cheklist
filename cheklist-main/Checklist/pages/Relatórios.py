@@ -9,7 +9,19 @@ from Estatísticas import estatistica
 import requests
 import google.generativeai as genai
 from streamlit_option_menu import option_menu
-
+css_style = """
+            .my-square {
+                background-color:#0275b1;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
+        """
+        
+        # Aplicando o estilo e inserindo os quadrados
+st.markdown(f"<style>{css_style}</style>", unsafe_allow_html=True)
 lista_item_repetido =[]
 lista_normais = []
 lista = []
@@ -41,10 +53,11 @@ if opcao_selecionada == 'Dados Gerais':
   Total_positivas = len(lista_normais)
   Total_negativas = len(lista_problema)
   Total = len(lista)
-  st.write(f'{len(lista)} Cheklists foram encontrados')
-  st.write(f'Total de Verificações Positivas: {len(lista_normais)}')
-  st.write(f'Total de Verificações Negativas: {len(lista_problema)}')
-  st.write(f'Percentual de Positividade Total: {percentual:.2f} %')
+  st.markdown(f'<div class="my-square">{Total} Cheklists foram encontrados</div>', unsafe_allow_html=True)
+  st.markdown(f'<div class="my-square">Total de Verificações Positivas: {Total_positivas}</div>', unsafe_allow_html=True)
+  st.markdown(f'<div class="my-square">Total de Verificações Negativas: {Total_negativas}</div>', unsafe_allow_html=True)
+  st.markdown(f'<div class="my-square">Percentual de Positividade Total: {percentual:.2f} %</div>', unsafe_allow_html=True)
+
 elif opcao_selecionada == 'Item com mais ocorrências':
   lista_item_repetido =[]
   lista_normais = []
