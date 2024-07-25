@@ -54,8 +54,11 @@ if opcao_selecionada == 'Dados Gerais':
   Total_negativas = len(lista_problema)
   Total = len(lista)
   st.markdown(f'<div class="my-square">{Total} Cheklists foram encontrados</div>', unsafe_allow_html=True)
+  st.divider()          
   st.markdown(f'<div class="my-square">Total de Verificações Positivas: {Total_positivas}</div>', unsafe_allow_html=True)
+  st.divider()          
   st.markdown(f'<div class="my-square">Total de Verificações Negativas: {Total_negativas}</div>', unsafe_allow_html=True)
+  st.divider()          
   st.markdown(f'<div class="my-square">Percentual de Positividade Total: {percentual:.2f} %</div>', unsafe_allow_html=True)
 
 elif opcao_selecionada == 'Item com mais ocorrências':
