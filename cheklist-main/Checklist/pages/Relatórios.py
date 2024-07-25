@@ -113,5 +113,5 @@ elif opcao_selecionada == 'Ver Checklists':
                                                   if item  != '...':
                                                     lista_problema.append(item) 
 dict = {'Itens ok':lista_normais,'Itens Anoramis':lista_problema}
-tabela = pd.pd.DataFrame(dict)
+tabela = pd.DataFrame(dict)
 st.table(tabela)
