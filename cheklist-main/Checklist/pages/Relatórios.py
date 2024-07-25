@@ -111,4 +111,4 @@ elif opcao_selecionada == 'Ver Checklists':
                                              lista_anormal = espec['Anormais'] 
                                              for item in lista_anormal:
                                                   if item  != '...':
-                                                  lista_problema.append(item) 
+                                                    lista_problema.append(item) 
