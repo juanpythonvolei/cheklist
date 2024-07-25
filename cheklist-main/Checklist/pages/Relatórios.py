@@ -97,6 +97,7 @@ elif opcao_selecionada == 'Item com mais ocorrências':
   resposta = response.text
   st.write(f'{resposta}')
 elif opcao_selecionada == 'Ver Checklists':
+  data = st.selectbox("Selecione uma data",lista)            
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Checklists']
