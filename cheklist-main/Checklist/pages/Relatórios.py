@@ -95,21 +95,24 @@ elif opcao_selecionada == 'Ver Checklists':
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Checklists']
-  for item in dados:
-                                lista.append(item)          
-                                Checklist = dados[f'{item}']
-                                for elemento in Checklist:
-                                         espec = Checklist[f'{elemento}']
-                                         usuario = espec['Usuário'] 
-                                         Data = espec['Data'] 
-                                         if usuario == seletor and Data == data: 
-                                           
-                                             lista_ok  = espec['ok']
-                                             for item in lista_ok:
-                                                    lista_normais.append(item)
-                                             lista_anormal = espec['Anormais'] 
-                                             for item in lista_anormal:
-                                                    lista_problema.append(item) 
-dict = {'Itens ok':lista_normais,'Itens Anoramis':lista_problema}
-tabela = pd.DataFrame(dict)
-st.table(tabela)
+  try:
+    for item in dados:
+                                  lista.append(item)          
+                                  Checklist = dados[f'{item}']
+                                  for elemento in Checklist:
+                                           espec = Checklist[f'{elemento}']
+                                           usuario = espec['Usuário'] 
+                                           Data = espec['Data'] 
+                                           if usuario == seletor and Data == data: 
+                                             
+                                               lista_ok  = espec['ok']
+                                               for item in lista_ok:
+                                                      lista_normais.append(item)
+                                               lista_anormal = espec['Anormais'] 
+                                               for item in lista_anormal:
+                                                      lista_problema.append(item) 
+  dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
+  tabela = pd.DataFrame(dict)
+  st.table(tabela)
+except:
+  st.warning(f'Usuário: {usuario} não possúi dados para esses parametros')
