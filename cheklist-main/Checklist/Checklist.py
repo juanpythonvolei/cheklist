@@ -8,7 +8,19 @@ import pytz
 from Estatísticas import estatistica
 
 
-
+css_style = """
+            .my-square {
+                background-color:#0275b1;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
+        """
+        
+        # Aplicando o estilo e inserindo os quadrados
+st.markdown(f"<style>{css_style}</style>", unsafe_allow_html=True)
 fuso_horario_brasilia = pytz.timezone('America/Sao_Paulo')
 agora_brasilia = datetime.now(fuso_horario_brasilia)
 data_hora_formatada = agora_brasilia.strftime("%Y-%m-%d %H:%M:%S")
