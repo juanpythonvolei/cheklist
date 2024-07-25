@@ -111,8 +111,8 @@ elif opcao_selecionada == 'Ver Checklists':
                                                lista_anormal = espec['Anormais'] 
                                                for item in lista_anormal:
                                                       lista_problema.append(item) 
-  dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
-  tabela = pd.DataFrame(dict)
-  st.table(tabela)
+    dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
+    tabela = pd.DataFrame(dict)
+    st.table(tabela)
 except:
   st.warning(f'Usuário: {usuario} não possúi dados para esses parametros')
