@@ -80,7 +80,7 @@ elif opcao_selecionada == 'Item com mais ocorrências':
   resposta = response.text
   st.write(f'{resposta}')
 elif opcao_selecionada == 'Ver Checklists':
-  seletor  = option_menu("Menu Principal", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], icons=["truck", "map",'robot'], default_index=1)
+  seletor  = option_menu("Menu Principal", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)
   lista_item_repetido =[]
   lista_normais = []
   lista = []
