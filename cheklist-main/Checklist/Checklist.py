@@ -64,7 +64,7 @@ def preenchimento(normal, anormal, campo):
         st.warning(f'Você não Preencheu o campo de {campo}')
 
 
-
+st.divider()
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
