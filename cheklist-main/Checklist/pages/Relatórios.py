@@ -106,11 +106,9 @@ elif opcao_selecionada == 'Ver Checklists':
                                            
                                              lista_ok  = espec['ok']
                                              for item in lista_ok:
-                                                  if item  != '...':
                                                     lista_normais.append(item)
                                              lista_anormal = espec['Anormais'] 
                                              for item in lista_anormal:
-                                                  if item  != '...':
                                                     lista_problema.append(item) 
 dict = {'Itens ok':lista_normais,'Itens Anoramis':lista_problema}
 tabela = pd.DataFrame(dict)
