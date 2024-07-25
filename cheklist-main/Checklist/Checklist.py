@@ -534,16 +534,16 @@ with col3:
         normal_Indicador_de_Bateria= st.checkbox(label='Normal', key='1Indicador_de_Bateria')
         if normal_Indicador_de_Bateria:
                 if 'Indicador_de_Bateria ok' not in st.session_state.lista_qtd:
-                        st.session_state.lista_qtd.append('Indicador_de_Bateria ok')
+                        st.session_state.lista_qtd.append('Indicador de Bateria ok')
                         st.session_state.lista_problemas.append('...')
                 else:
                        pass
         else:
                 if 'Indicador_de_Bateria ok' in st.session_state.lista_qtd:
-                        st.session_state.lista_qtd.remove('Indicador_de_Bateria ok')
+                        st.session_state.lista_qtd.remove('Indicador de Bateria ok')
                         st.session_state.lista_problemas.append('...')
 
-preenchimento(normal=normal_Indicador_de_Bateria, anormal=anormal_Indicador_de_Bateria, campo='Indicador_de_Bateria')
+preenchimento(normal=normal_Indicador_de_Bateria, anormal=anormal_Indicador_de_Bateria, campo='Indicador de Bateria')
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
