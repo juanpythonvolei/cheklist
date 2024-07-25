@@ -721,7 +721,7 @@ pdf_buffer = criar_pdf_em_memoria(dict_resposta)
 
 
 
-botao_email = st.button('Enviar E-mail')
+botao_email = st.button('Enviar Cheklist')
 if botao_email:
     enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer)       
     estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada)        
