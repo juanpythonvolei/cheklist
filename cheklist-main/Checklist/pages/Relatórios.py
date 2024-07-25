@@ -114,5 +114,5 @@ elif opcao_selecionada == 'Ver Checklists':
     dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
     tabela = pd.DataFrame(dict)
     st.table(tabela)
-except:
-  st.warning(f'Usuário: {usuario} não possúi dados para esses parametros')
+  except:
+    st.warning(f'Usuário: {usuario} não possúi dados para esses parametros')
