@@ -80,10 +80,16 @@ elif opcao_selecionada == 'Item com mais ocorrências':
   resposta = response.text
   st.write(f'{resposta}')
 elif opcao_selecionada == 'Ver Checklists':
+  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+  roteiro = requiscao.json()
+  dados = roteiro['Checklists']
+  for item in dados:
+                                lista.append(item)          
   seletor  = option_menu("Menu Principal", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)
+  data = st.selectbox("Selecione uma data",lista)
   lista_item_repetido =[]
   lista_normais = []
-  lista = []
+  
   lista_problema = []
   texto_problemas = ''
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
@@ -94,12 +100,15 @@ elif opcao_selecionada == 'Ver Checklists':
                                 Checklist = dados[f'{item}']
                                 for elemento in Checklist:
                                          espec = Checklist[f'{elemento}']
-                                         Data = espec['Data']
-                                         lista_ok  = espec['ok']
-                                         for item in lista_ok:
-                                              if item  != '...':
-                                                lista_normais.append(item)
-                                         lista_anormal = espec['Anormais'] 
-                                         for item in lista_anormal:
-                                              if item  != '...':
-                                                lista_problema.append(item) 
+                                         usuario = espec['Usuário'] 
+                                         Data = espec['Data'] 
+                                         if usuario == seletor and Data == data: 
+                                           
+                                             lista_ok  = espec['ok']
+                                             for item in lista_ok:
+                                                  if item  != '...':
+                                                    lista_normais.append(item)
+                                             lista_anormal = espec['Anormais'] 
+                                             for item in lista_anormal:
+                                                  if item  != '...':
+                                                  lista_problema.append(item) 
