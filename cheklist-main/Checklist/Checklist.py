@@ -97,7 +97,7 @@ with col2:
                                         else:            
                                                 st.session_state.lista_problemas.append(reclamacao_oleo)
                                                 st.session_state.lista_qtd.append('...')
-                                                adicionar_imagem(nome_texto='reclamacao_oleo',nome_link='reclamacao_oleo') 
+                                                adicionar_imagem(nome_texto='reclamacao_oleo',nome_link='reclamacao_oleo',lista) 
                                                 st.warning('Problema relatado')
 
 with col3:
