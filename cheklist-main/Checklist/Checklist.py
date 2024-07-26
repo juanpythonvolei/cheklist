@@ -6,6 +6,7 @@ from io import BytesIO
 from datetime import datetime
 import pytz
 from Estatísticas import estatistica
+from Adicionar_Imagens import adicionar_imagens
 
 
 css_style = """
@@ -31,6 +32,7 @@ st.divider()
 if usuario:
             st.session_state.lista_qtd = []
             st.session_state.lista_problemas = []
+            st.session_state.lista_imagens = []
             st.session_state.mostrar_reclamacao = False
             st.warning('Novo Checklist Iniciado ✔️')
             st.markdown(f'<div class="my-square">Seja Bem-vindo, {usuario}</div>', unsafe_allow_html=True)
@@ -88,7 +90,7 @@ with col2:
                 if anormal_oleo:
                         with col4:
                                 reclamacao_oleo = st.text_input(label='Digite o Problema', key='texto_oleo')
-                                image = st.camera_input(label='Adicione uma foto')    
+                                adicionar_imagens()    
                                 if reclamacao_oleo != '':
                                         if reclamacao_oleo in  st.session_state.lista_problemas:
                                               pass
