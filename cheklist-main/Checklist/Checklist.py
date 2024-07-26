@@ -88,6 +88,7 @@ with col2:
                 if anormal_oleo:
                         with col4:
                                 reclamacao_oleo = st.text_input(label='Digite o Problema', key='texto_oleo')
+                                image = st.camera_input()    
                                 if reclamacao_oleo != '':
                                         if reclamacao_oleo in  st.session_state.lista_problemas:
                                               pass
