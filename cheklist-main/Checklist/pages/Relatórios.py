@@ -104,8 +104,9 @@ elif opcao_selecionada == 'Ver Checklists':
   for item in dados:
                                 lista.append(item)          
                
-  seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)
-  data = st.selectbox("Selecione uma data",lista)           
+  
+  data = st.selectbox("Selecione uma data",lista)
+  seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)          
   lista_item_repetido =[]
   lista_normais = []
   
