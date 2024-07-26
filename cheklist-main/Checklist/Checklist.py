@@ -90,13 +90,14 @@ with col2:
                 if anormal_oleo:
                         with col4:
                                 reclamacao_oleo = st.text_input(label='Digite o Problema', key='texto_oleo')
-                                adicionar_imagens()    
+                                   
                                 if reclamacao_oleo != '':
                                         if reclamacao_oleo in  st.session_state.lista_problemas:
                                               pass
-                                        else:
+                                        else:            
                                                 st.session_state.lista_problemas.append(reclamacao_oleo)
                                                 st.session_state.lista_qtd.append('...')
+                                                adicionar_imagem(nome_texto='reclamacao_oleo',nome_link='reclamacao_oleo') 
                                                 st.warning('Problema relatado')
 
 with col3:
