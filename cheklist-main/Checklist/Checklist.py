@@ -6,7 +6,7 @@ from io import BytesIO
 from datetime import datetime
 import pytz
 from Estatísticas import estatistica
-from Adicionar_Imagens import adicionar_imagens
+from Adicionar_Imagens import adicionar_imagem
 
 
 css_style = """
