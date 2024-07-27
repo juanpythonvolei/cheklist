@@ -48,7 +48,8 @@ def criar_pdf_em_memoria(dados):
         def add_table(self, df, lista_de_imagens):
                 self.set_font('Arial', '', 12)
                 col_width = 80
-            
+                self.set_auto_page_break(auto=True, margin=15)
+                self.add_page(format='letter', orientation='P')
                 for i in range(len(df)):
                     for j in range(len(df.columns)):
                         if j == 2:
@@ -63,7 +64,7 @@ def criar_pdf_em_memoria(dados):
                     if i < len(imagens_validas):
                         self.image(imagens_validas[i], x=self.w - col_width, y=self.y, w=60, h=40)
                     self.ln()
-    df.rename(columns={2: 'Imagens das observações'}, inplace=True)                        
+         df.rename(columns={2: 'Imagens das observações'}, inplace=True)                   
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
     pdf.add_page()
