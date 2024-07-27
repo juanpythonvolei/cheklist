@@ -61,24 +61,25 @@ def criar_pdf_em_memoria(dados):
         def add_text(self, text, font_size=12):
                    self.set_font('Arial', '', font_size)
                    self.multi_cell(0, 10, text, 0, align='C')  
-        def add_image(self, imagens, x, y, width, height):
-                    for item in imagens:
-                                if item == '...':
-                                            pass
-                                else:
-                                            lista2.append(item)
-        # Adicione a imagem ao PDF
-                    
-                    for item in lista2:
-                                            self.image(item, x,y, width, height)
-                                            x += 5
+        def add_images_in_rows(self, imagens, num_images_per_row, x_start, y_start, width, height, spacing):
+                x = x_start
+                y = y_start
+                for i, item in enumerate(imagens):
+                    if item == '...':
+                        continue  # Pule se for um marcador especial (se necessário)
+                    self.image(item, x, y, width, height)
+                    x += width + spacing  # Espaçamento horizontal entre imagens
+                    if (i + 1) % num_images_per_row == 0:
+                        # Avance para a próxima linha
+                        x = x_start
+                        y += height + spacing  # Espaçamento vertical entre linhas
 
     pdf = PDF()
     pdf.add_page()
     pdf.add_table(df)
     pdf.add_page()  # Isso cria uma nova página        
     pdf.add_text('Imagens das observações abaixo')        
-    pdf.add_image(st.session_state.lista_imagens, x=1, y=30, width=30, height=30)
+    pdf.add_images_in_rows(st.session_state.lista_imagens, num_images_per_row=3, x_start=10, y_start=250, width=30, height=30, spacing=10)
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
     pdf_buffer.seek(0)
