@@ -75,9 +75,8 @@ try:
               texto_problemas = ''
               requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
               roteiro = requiscao.json()
-              dados = roteiro['Checklists']
-              try:          
-                          for item in dados:
+              dados = roteiro['Checklists']          
+              for item in dados:          
                                                         lista.append(item)          
                                                         Checklist = dados[f'{item}']
                                                         for elemento in Checklist:
@@ -103,10 +102,10 @@ try:
                           response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual o problema, como óleo, rodas etc,que mais se repete dentre as queixas:\n\n{texto_problemas}\n')
                           resposta = response.text
                           st.write(f'{resposta}')
-              except:
-                          st.warning('Não há Checklist para analisar')
+              
+                         
             elif opcao_selecionada == 'Ver Checklists':
-              try:          
+                        
                           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                           roteiro = requiscao.json()
                           dados = roteiro['Checklists']
