@@ -34,7 +34,7 @@ if usuario:
             st.session_state.lista_problemas = []
             st.session_state.lista_imagens = []
             st.session_state.mostrar_reclamacao = False
-            st.warning('Novo Checklist Iniciado ✔️')
+            st.warning('Novo Checklist Iniciado')
             st.markdown(f'<div class="my-square">Seja Bem-vindo, {usuario}</div>', unsafe_allow_html=True)
 
 def criar_pdf_em_memoria(dados):
@@ -56,8 +56,6 @@ def criar_pdf_em_memoria(dados):
                  # Adicione a imagem apenas uma vez por linha
         def add_text(self, text, font_size=12):
                    self.set_font('Arial', '', font_size)
-        # Centralize o texto na largura da página
-                   self.set_x((self.w - self.get_string_width(text)) / 2)
                    self.multi_cell(0, 10, text, 0, align='C')  
         def add_image(self, imagens, x, y, width, height):
                     for item in imagens:
@@ -73,7 +71,7 @@ def criar_pdf_em_memoria(dados):
     pdf = PDF()
     pdf.add_page()
     pdf.add_table(df)
-    pdf.add_text('Imagens das observações')        
+    pdf.add_text('Imagens das observações abaixo')        
     pdf.add_image(st.session_state.lista_imagens, x=10, y=250, width=40, height=40)
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
