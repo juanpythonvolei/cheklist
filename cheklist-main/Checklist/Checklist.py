@@ -70,10 +70,6 @@ def criar_pdf_em_memoria(dados):
                 for i, item in enumerate(imagens):
                     if item == '...':
                         continue  # Pule se for um marcador especial (se necessário)
-                    else:    
-                                nome = item.replace(caracter,'')
-                                nome = nome.replace(caracter2,'')
-                                titulos_imagens.append(nome)
                     self.set_font('Arial', 'B', 10)
                     self.cell(width, 10,titulos_imagens[i], 0, 1, 'C')            
                     self.image(item, x, y, width, height)
