@@ -9,6 +9,7 @@ from Estatísticas import estatistica
 import requests
 import google.generativeai as genai
 from streamlit_option_menu import option_menu
+from Adicionar_Imagens import 
 css_style = """
             .my-square {
                 background-color:#0275b1;
@@ -135,6 +136,8 @@ elif opcao_selecionada == 'Ver Checklists':
                                                for item in lista1:
                                                            lista_imagens.append(item)
           
-  dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema,'Imgens':lista_imagens}
+  dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
   tabela = pd.DataFrame(dict)
   st.table(tabela)                              
+  if len(lista_imagens) > 0:
+              
