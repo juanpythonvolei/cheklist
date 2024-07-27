@@ -194,7 +194,7 @@ with col2:
     if anormal_Bateria:
         with col4:
             reclamacao_Bateria = st.text_input(label='Digite o Problema', key='texto_Bateria')
-            adicionar_imagem(nome_texto='texto_Bateria',nome_link='texto_Bateria',lista=st.session_state.lista_imagens)         
+            adicionar_imagem(nome_texto='Bateria',nome_link='Bateria',lista=st.session_state.lista_imagens)         
             if reclamacao_Bateria !='':
                 if reclamacao_Bateria in st.session_state.lista_problemas:
                       pass
