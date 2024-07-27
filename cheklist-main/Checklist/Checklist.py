@@ -63,7 +63,8 @@ def criar_pdf_em_memoria(dados):
                                             lista2.append(item)
         # Adicione a imagem ao PDF
                     for item in lista2:
-                                self.image(item, x, y, width, height)            
+                                self.image(item, x, y, width, height)
+                                x += 50
            
     pdf = PDF()
     pdf.add_page()
