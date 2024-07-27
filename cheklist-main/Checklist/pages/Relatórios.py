@@ -90,7 +90,7 @@ try:
                                                                  for item in lista_anormal:
                                                                       if item  != '...':
                                                                         lista_problema.append(item) 
-                          for item in lista_problema:
+              for item in lista_problema:            
                             texto_problemas += item
                             GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
                             genai.configure(api_key=GOOGLE_API_KEY)
