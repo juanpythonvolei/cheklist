@@ -160,7 +160,7 @@ with col2:
     if anormal_Chave:
         with col4:
             reclamacao_Chave = st.text_input(label='Digite o Problema', key='texto_Chave liga/desliga')
-            adicionar_imagem(nome_texto='texto_Chave liga/desliga',nome_link='texto_Chave liga/desliga',lista=st.session_state.lista_imagens) 
+            adicionar_imagem(nome_texto='Chave liga/desliga',nome_link='Chave liga/desliga',lista=st.session_state.lista_imagens) 
             if reclamacao_Chave != '':
                 if reclamacao_Chave in st.session_state.lista_problemas:
                       pass
@@ -786,7 +786,7 @@ with col3:
 
 preenchimento(normal=normal_Tomadas_e_cabos_da_Bateria, anormal=anormal_Tomadas_e_cabos_da_Bateria, campo='Tomadas e cabos da Bateria')
 
-max_length = max(len(st.session_state.lista_qtd), len(st.session_state.lista_problemas,len(st.session_state.lista_imagens)))
+max_length = max(len(st.session_state.lista_qtd), len(st.session_state.lista_problemas),len(st.session_state.lista_imagens)))
 st.session_state.lista_qtd.extend([''] * (max_length - len(st.session_state.lista_qtd)))
 st.session_state.lista_problemas.extend([''] * (max_length - len(st.session_state.lista_problemas)))
 st.session_state.lista_imagens.extend([''] * (max_length - len(st.session_state.lista_problemas)))
