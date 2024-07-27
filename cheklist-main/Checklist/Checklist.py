@@ -79,7 +79,7 @@ def criar_pdf_em_memoria(dados):
                         x = x_start
                         y += height + spacing  # Espaçamento vertical entre linhas
     titulos_imagens = []        
-    for i, item in enumerate(imagens):
+    for i, item in enumerate(st.session_state.lista_imagens):
                     if item == '...':
                         continue  # Pule se for um marcador especial (se necessário)
                     else:    
