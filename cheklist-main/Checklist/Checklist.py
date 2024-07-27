@@ -805,7 +805,7 @@ st.session_state.lista_problemas.extend([''] * (max_length - len(st.session_stat
 st.session_state.lista_imagens.extend([''] * (max_length - len(st.session_state.lista_problemas)))
 dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas}
 pdf_buffer = criar_pdf_em_memoria(dict_resposta)
-pdf.add_table(df, lista_de_imagens)
+
 
 
 
