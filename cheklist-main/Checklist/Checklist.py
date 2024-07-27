@@ -40,8 +40,9 @@ if usuario:
 def criar_pdf_em_memoria(dados):
     lista2 = []        
     df = pd.DataFrame(dados)
-    self.page_length = 200        
+            
     class PDF(FPDF):
+        self.page_length = 2000        
         def header(self):
             self.set_font('Arial', 'B', 12)
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
