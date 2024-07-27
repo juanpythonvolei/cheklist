@@ -115,8 +115,8 @@ elif opcao_selecionada == 'Ver Checklists':
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Checklists']
-  try:
-    for item in dados:
+  
+  for item in dados:          
                                   lista.append(item)          
                                   Checklist = dados[f'{item}']
                                   for elemento in Checklist:
@@ -134,8 +134,7 @@ elif opcao_selecionada == 'Ver Checklists':
                                                lista1 = espec['Imagens']
                                                for item in lista11:
                                                            lista_imagens.append(item)
-    dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema,'Imgens':lista_imagens}
-    tabela = pd.DataFrame(dict)
-    st.table(tabela)
-  except:
-    st.warning(f'Usuário: {usuario} não possúi dados para esses parametros')
+          
+  dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema,'Imgens':lista_imagens}
+  tabela = pd.DataFrame(dict)
+  st.table(tabela)                              
