@@ -66,7 +66,7 @@ def criar_pdf_em_memoria(dados):
     lista_de_imagens =  st.session_state.lista_imagens      
     pdf = PDF()
     pdf.add_page()
-    pdf.add_table(df,lista_de_imagens)
+    pdf.add_table(df)
     
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
