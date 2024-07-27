@@ -48,6 +48,7 @@ def criar_pdf_em_memoria(dados):
         def add_table(self, df, lista_de_imagens):
                 self.set_font('Arial', '', 12)
                 col_width = 80
+                col_height = 40   
                 self.set_auto_page_break(auto=True, margin=15)    
                 for i in range(len(df)):
                     for j in range(len(df.columns)):
