@@ -52,7 +52,7 @@ def criar_pdf_em_memoria(dados):
 
         def add_table(self, df):
             self.set_font('Arial', '', 12)
-            col_width = 80  # Defina a largura desejada para as células
+            col_width = 100  # Defina a largura desejada para as células
             for i in range(len(df)):
                 for j in range(len(df.columns)):
                     self.cell(col_width, 10, str(df.iloc[i, j]), 1)
