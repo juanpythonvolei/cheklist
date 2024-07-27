@@ -17,7 +17,7 @@ from streamlit_option_menu import option_menu
 from pprint import pprint
 
 
-def estatistica(sim,nao,usuario,data):
+def estatistica(sim,nao,imagem,usuario,data):
     if not firebase_admin._apps:
         autenticacao  = {
         "type": "service_account",
