@@ -140,12 +140,14 @@ with col3:
                 if 'Rodas ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Rodas ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')    
                 else:
                        pass
         else:
                 if 'Rodas ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Rodas ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')    
 
 preenchimento(normal=normal_Rodas, anormal=anormal_Rodas, campo='Rodas')
 # Dicionário de resposta
@@ -158,6 +160,7 @@ with col2:
     if anormal_Chave:
         with col4:
             reclamacao_Chave = st.text_input(label='Digite o Problema', key='texto_Chave liga/desliga')
+            adicionar_imagem(nome_texto='texto_Chave liga/desliga',nome_link='texto_Chave liga/desliga',lista=st.session_state.lista_imagens) 
             if reclamacao_Chave != '':
                 if reclamacao_Chave in st.session_state.lista_problemas:
                       pass
@@ -172,12 +175,14 @@ with col3:
                 if 'Chave liga/desliga ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Chave liga/desliga ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')    
                 else:
                        pass
         else:
                 if 'Chave liga/desliga ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Chave liga/desliga ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')    
 
 preenchimento(normal=normal_Chave, anormal=anormal_Chave, campo='Chave liga/desliga')
 
@@ -189,6 +194,7 @@ with col2:
     if anormal_Bateria:
         with col4:
             reclamacao_Bateria = st.text_input(label='Digite o Problema', key='texto_Bateria')
+            adicionar_imagem(nome_texto='texto_Bateria',nome_link='texto_Bateria',lista=st.session_state.lista_imagens)         
             if reclamacao_Bateria !='':
                 if reclamacao_Bateria in st.session_state.lista_problemas:
                       pass
@@ -203,12 +209,16 @@ with col3:
                 if 'Bateria ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Bateria ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')    
+                            
                 else:
                        pass
         else:
                 if 'Bateria ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Bateria ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')    
+                        
 
 preenchimento(normal=normal_Bateria, anormal=anormal_Bateria, campo='Bateria')
 
@@ -220,6 +230,7 @@ with col2:
     if anormal_Elevação_dos_Garfos:
         with col4:
             reclamacao_Elevação_dos_Garfos = st.text_input(label='Digite o Problema', key='texto_Elevvação_dos_gsarfos')
+            adicionar_imagem(nome_texto='texto_Elevação_dos_gsarfos',nome_link='texto_Elevvação_dos_gsarfos',lista=st.session_state.lista_imagens)        
             if reclamacao_Elevação_dos_Garfos != '':
                 if reclamacao_Elevação_dos_Garfos in  st.session_state.lista_problemas:
                       pass
@@ -235,13 +246,15 @@ with col3:
                 if 'Elevação dos Garfos ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Elevação dos Garfos ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')     
+                        
                 else:
                        pass
         else:
                 if 'Elevação dos Garfos ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Elevação dos Garfos ok')
                         st.session_state.lista_problemas.append('...')
-
+                        st.session_state.lista_imagens.append('...')            
 preenchimento(normal=normal_Elevação_dos_Garfos, anormal=anormal_Elevação_dos_Garfos, campo='Elevação dos Garfos')
 
 col1, col2, col3, col4 = st.columns(4)
@@ -252,6 +265,7 @@ with col2:
     if anormal_Trava_da_Bateria:
         with col4:
             reclamacao_Trava_da_Bateria = st.text_input(label='Digite o Problema', key='texto_Trava_da_bbBateria')
+            adicionar_imagem(nome_texto='Trava da Bateria ',nome_link='Trava da Bateria ',lista=st.session_state.lista_imagens)        
             if reclamacao_Trava_da_Bateria != '':
                 if reclamacao_Trava_da_Bateria in st.session_state.lista_problemas:
                        pass
@@ -267,12 +281,14 @@ with col3:
                 if 'Trava da Bateria ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Trava da Bateria ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                         pass
         else:
                 if 'Trava da Bateria ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Trava da Bateria ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Trava_da_Bateria, anormal=anormal_Trava_da_Bateria, campo='Trava da Bateria')
 
@@ -284,6 +300,7 @@ with col2:
     if anormal_Limpeza_Externa:
         with col4:
             reclamacao_Limpeza_Externa = st.text_input(label='Digite o Problema', key='texto_externa')
+            adicionar_imagem(nome_texto='Limpeza Externa',nome_link='Limpeza Externa',lista=st.session_state.lista_imagens)        
             if reclamacao_Limpeza_Externa != '':
                 if reclamacao_Limpeza_Externa in st.session_state.lista_problemas:
                        pass
@@ -299,12 +316,14 @@ with col3:
                 if 'Limpeza Externa ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Limpeza Externa ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Limpeza Externa ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Limpeza Externa ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Limpeza_Externa, anormal=anormal_Limpeza_Externa, campo='Limpeza Externa')
 
@@ -316,7 +335,7 @@ with col2:
     if anormal_Folga_no_acelerador:
         with col4:
             reclamacao_Folga_no_acelerador = st.text_input(label='Digite o Problema', key='texto_folgaa_noooo__aceleradorrrrrrr')
-            
+            adicionar_imagem(nome_texto='Folga no acelerador',nome_link='Folga no acelerador',lista=st.session_state.lista_imagens)
             if reclamacao_Folga_no_acelerador != '':
                 if reclamacao_Folga_no_acelerador in st.session_state.lista_problemas:
                        pass
@@ -332,12 +351,14 @@ with col3:
                 if 'Folga no acelerador ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Folga no acelerador ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Folga no acelerador ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Folga no acelerador ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Folga_no_acelerador, anormal=anormal_Folga_no_acelerador, campo='Folga no acelerador')
 
@@ -349,6 +370,7 @@ with col2:
     if anormal_Acionamento_Hidráulico:
         with col4:
             reclamacao_Acionamento_Hidráulico = st.text_input(label='Digite o Problema', key='texto_mento_lico')
+            adicionar_imagem(nome_texto='Acionamento Hidráulico',nome_link='Acionamento Hidráulico',lista=st.session_state.lista_imagens)        
             if reclamacao_Acionamento_Hidráulico != '':
                 if reclamacao_Acionamento_Hidráulico in st.session_state.lista_problemas:
                        pass
@@ -364,12 +386,14 @@ with col3:
                 if 'Acionamento Hidráulico ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Acionamento Hidráulico ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Acionamento Hidráulico ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Acionamento Hidráulico ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Acionamento_Hidráulico, anormal=anormal_Acionamento_Hidráulico, campo='Acionamento Hidráulico')
 
@@ -381,6 +405,7 @@ with col2:
     if anormal_Horímetro:
         with col4:
             reclamacao_Horímetro = st.text_input(label='Digite o Problema', key='texto_Horrimetro')
+            adicionar_imagem(nome_texto='Horímetro',nome_link='Horímetro',lista=st.session_state.lista_imagens)        
             if reclamacao_Horímetro !='':
                 if reclamacao_Horímetro in st.session_state.lista_problemas:
                        pass
@@ -396,12 +421,14 @@ with col3:
                 if 'Horímetro ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Horímetro ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')    
                 else:
                        pass
         else:
                 if 'Horímetro ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Horímetro ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Horímetro, anormal=anormal_Horímetro, campo='Horímetro')
 
@@ -415,6 +442,7 @@ with col2:
     if anormal_Chave_Direcional:
         with col4:
             reclamacao_Chave_Direcional = st.text_input(label='Digite o Problema', key='texto_Chave_Dirrecional')
+            adicionar_imagem(nome_texto='Chave Direcional',nome_link='Chave Direcional',lista=st.session_state.lista_imagens)        
             if reclamacao_Chave_Direcional !='':
                 if reclamacao_Chave_Direcional in st.session_state.lista_problemas:
                        pass
@@ -429,12 +457,14 @@ with col3:
                 if 'Chave Direcional ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Chave Direcional ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')    
                 else:
                        pass
         else:
                 if 'Chave Direcional ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Chave Direcional ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Chave_Direcional, anormal=anormal_Chave_Direcional, campo='Chave Direcional')
 
@@ -446,6 +476,7 @@ with col2:
     if anormal_Botão_de_Emergência:
         with col4:
             reclamacao_Botão_de_Emergência = st.text_input(label='Digite o Problema', key='texto_Botão de Emergência')
+            adicionar_imagem(nome_texto='Botão de Emergência',nome_link='Botão de Emergência',lista=st.session_state.lista_imagens)        
             if reclamacao_Botão_de_Emergência !='':
                 if reclamacao_Botão_de_Emergência in st.session_state.lista_problemas:
                        pass
@@ -460,12 +491,14 @@ with col3:
                 if 'Botão de Emergência ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Botão de Emergência ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Botão de Emergência ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Botão de Emergência ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Botão_de_Emergência, anormal=anormal_Botão_de_Emergência, campo='Botão de Emergência')
 
