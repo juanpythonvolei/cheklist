@@ -11,9 +11,12 @@ def adicionar_imagem(nome_texto,nome_link,lista):
         pass
 def exibir_imagem(link,nome):
     try:
-        st.warning(f'Imagem do item {nome} abaixo')
-        image = Image.open(link)
-        st.image(image, use_column_width=True)
-        st.divider()
+        if nome == '...':
+            pass
+        else:
+            st.warning(f'Imagem do item {nome} abaixo')
+            image = Image.open(link)
+            st.image(image, use_column_width=True)
+            st.divider()
     except:
         pass
