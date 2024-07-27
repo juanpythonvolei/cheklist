@@ -35,20 +35,23 @@ requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.fireba
 roteiro = requiscao.json()
 dados = roteiro['Checklists']
 if opcao_selecionada == 'Dados Gerais':
-  for item in dados:
-                              lista.append(item)          
-                              Checklist = dados[f'{item}']
-                              for elemento in Checklist:
-                                       espec = Checklist[f'{elemento}']
-                                       Data = espec['Data']
-                                       lista_ok  = espec['ok']
-                                       for item in lista_ok:
-                                            if item  != '...':
-                                              lista_normais.append(item)
-                                       lista_anormal = espec['Anormais'] 
-                                       for item in lista_anormal:
-                                            if item  != '...':
-                                              lista_problema.append(item) 
+  try:          
+              for item in dados:
+                                          lista.append(item)          
+                                          Checklist = dados[f'{item}']
+                                          for elemento in Checklist:
+                                                   espec = Checklist[f'{elemento}']
+                                                   Data = espec['Data']
+                                                   lista_ok  = espec['ok']
+                                                   for item in lista_ok:
+                                                        if item  != '...':
+                                                          lista_normais.append(item)
+                                                   lista_anormal = espec['Anormais'] 
+                                                   for item in lista_anormal:
+                                                        if item  != '...':
+                                                          lista_problema.append(item) 
+ except:
+             st.warning('Não há Checklists para analisar')
   
   percentual = float((len(lista_normais)/(len(lista_normais)+len(lista_problema)))*100)
   Total_positivas = len(lista_normais)
@@ -71,93 +74,98 @@ elif opcao_selecionada == 'Item com mais ocorrências':
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Checklists']
-  for item in dados:
-                                lista.append(item)          
-                                Checklist = dados[f'{item}']
-                                for elemento in Checklist:
-                                         espec = Checklist[f'{elemento}']
-                                         Data = espec['Data']
-                                         lista_ok  = espec['ok']
-                                         for item in lista_ok:
-                                              if item  != '...':
-                                                lista_normais.append(item)
-                                         lista_anormal = espec['Anormais'] 
-                                         for item in lista_anormal:
-                                              if item  != '...':
-                                                lista_problema.append(item) 
-  for item in lista_problema:
-    texto_problemas += item
-  GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
-  genai.configure(api_key=GOOGLE_API_KEY)
-  
-  model = genai.GenerativeModel('gemini-1.5-flash')
-  
-  chat = model.start_chat(history=[])
-  
-  response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual o problema, como óleo, rodas etc,que mais se repete dentre as queixas:\n\n{texto_problemas}\n')
-  resposta = response.text
-  st.write(f'{resposta}')
+  try:          
+              for item in dados:
+                                            lista.append(item)          
+                                            Checklist = dados[f'{item}']
+                                            for elemento in Checklist:
+                                                     espec = Checklist[f'{elemento}']
+                                                     Data = espec['Data']
+                                                     lista_ok  = espec['ok']
+                                                     for item in lista_ok:
+                                                          if item  != '...':
+                                                            lista_normais.append(item)
+                                                     lista_anormal = espec['Anormais'] 
+                                                     for item in lista_anormal:
+                                                          if item  != '...':
+                                                            lista_problema.append(item) 
+              for item in lista_problema:
+                texto_problemas += item
+              GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
+              genai.configure(api_key=GOOGLE_API_KEY)
+              
+              model = genai.GenerativeModel('gemini-1.5-flash')
+              
+              chat = model.start_chat(history=[])
+              
+              response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual o problema, como óleo, rodas etc,que mais se repete dentre as queixas:\n\n{texto_problemas}\n')
+              resposta = response.text
+              st.write(f'{resposta}')
+  except:
+              st.warning('Não há Checklist para analisar')
 elif opcao_selecionada == 'Ver Checklists':
-            
-  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-  roteiro = requiscao.json()
-  dados = roteiro['Checklists']
-  for item in dados:
-                                lista.append(item)          
-               
-  
-  data = st.selectbox("Selecione uma data",lista)
-  seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)          
-  lista_item_repetido =[]
-  lista_normais = []
-  lista_imagens = []
-  lista_problema = []
-  texto_problemas = ''
-  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-  roteiro = requiscao.json()
-  dados = roteiro['Checklists']
-  
-  for item in dados:          
-                                  lista.append(item)          
-                                  Checklist = dados[f'{item}']
-                                  for elemento in Checklist:
-                                           espec = Checklist[f'{elemento}']
-                                           usuario = espec['Usuário'] 
-                                           Data = espec['Data'] 
-                                           if usuario == seletor and Data == data: 
-                                             
-                                               lista_ok  = espec['ok']
-                                               for item in lista_ok:
-                                                      lista_normais.append(item)
-                                               lista_anormal = espec['Anormais'] 
-                                               for item in lista_anormal:
-                                                      lista_problema.append(item) 
-                                               try           :
-                                                           lista1 = espec['Imagens']
-                                                           for item in lista1:
-                                                                       lista_imagens.append(item)
-                                               except:
-                                                           pass
-          
-  dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
-  tabela = pd.DataFrame(dict)
-  st.table(tabela) 
-  caracter = './captured_image_'
-  caracter2 = '.jpg'
-  caracter3 = '_'          
-  if len(lista_imagens) > 0:
-              botao = st.button('Ver Imagens do Checklist')
-              if botao:
-                          for item in lista_imagens:
-                                      try:
-                                                  nome = item.replace(caracter,'')
-                                                  nome = nome.replace(caracter2,'')
-                                                  if caracter3 in nome:
-                                                              nome = nome.replace(caracter3,' ')
-                                                              exibir_imagem(item,nome)
-                                                  else:
-                                                         exibir_imagem(item,nome)     
-                                                            
-                                                  
-                                      except:
-                                                  pass
+  try:          
+              requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+              roteiro = requiscao.json()
+              dados = roteiro['Checklists']
+              for item in dados:
+                                            lista.append(item)          
+                           
+              
+              data = st.selectbox("Selecione uma data",lista)
+              seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)          
+              lista_item_repetido =[]
+              lista_normais = []
+              lista_imagens = []
+              lista_problema = []
+              texto_problemas = ''
+              requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+              roteiro = requiscao.json()
+              dados = roteiro['Checklists']
+              
+              for item in dados:          
+                                              lista.append(item)          
+                                              Checklist = dados[f'{item}']
+                                              for elemento in Checklist:
+                                                       espec = Checklist[f'{elemento}']
+                                                       usuario = espec['Usuário'] 
+                                                       Data = espec['Data'] 
+                                                       if usuario == seletor and Data == data: 
+                                                         
+                                                           lista_ok  = espec['ok']
+                                                           for item in lista_ok:
+                                                                  lista_normais.append(item)
+                                                           lista_anormal = espec['Anormais'] 
+                                                           for item in lista_anormal:
+                                                                  lista_problema.append(item) 
+                                                           try           :
+                                                                       lista1 = espec['Imagens']
+                                                                       for item in lista1:
+                                                                                   lista_imagens.append(item)
+                                                           except:
+                                                                       pass
+                      
+              dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
+              tabela = pd.DataFrame(dict)
+              st.table(tabela) 
+              caracter = './captured_image_'
+              caracter2 = '.jpg'
+              caracter3 = '_'          
+              if len(lista_imagens) > 0:
+                          botao = st.button('Ver Imagens do Checklist')
+                          if botao:
+                                      for item in lista_imagens:
+                                                  try:
+                                                              nome = item.replace(caracter,'')
+                                                              nome = nome.replace(caracter2,'')
+                                                              if caracter3 in nome:
+                                                                          nome = nome.replace(caracter3,' ')
+                                                                          exibir_imagem(item,nome)
+                                                              else:
+                                                                     exibir_imagem(item,nome)     
+                                                                        
+                                                              
+                                                  except:
+                                                              pass
+  except:
+            st.warning('Não há Checklists para analisar')
