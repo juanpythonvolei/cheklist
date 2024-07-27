@@ -41,39 +41,42 @@ def criar_pdf_em_memoria(dados):
     df = pd.DataFrame(dados)
     lista2 =[]        
     class PDF(FPDF):
-        def header(self):
-            self.set_font('Arial', 'B', 12)
-            self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
+                            def header(self):
+                                self.set_font('Arial', 'B', 12)
+                                self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
+                        
+                            def add_table(self, df, lista_de_imagens):
+                                self.set_font('Arial', '', 12)
+                                col_width = 80
+                        
+                                # Aumentar a largura da página (por exemplo, para 8,5 x 11 polegadas)
+                                self.set_auto_page_break(auto=True, margin=15)
+                                self.add_page(format='letter', orientation='P')  # P para retrato (portrait)
+                        
+                                for i in range(len(df)):
+                                    for j in range(len(df.columns)):
+                                        if j == 2:
+                                            self.cell(col_width, 10, "", 1)
+                                        else:
+                                            self.cell(col_width, 10, str(df.iloc[i, j]), 1)
+                        
+                                    # Filtrar a lista de imagens para remover textos
+                                    imagens_validas = [item for item in lista_de_imagens if item != '...']
+                        
+                                    # Adicione a imagem apenas uma vez por linha
+                                    if i < len(imagens_validas):
+                                        self.image(imagens_validas[i], x=self.w - col_width, y=self.y, w=60, h=40)
+                                    self.ln()
 
-        def add_table(self, df, lista_de_imagens):
-                self.set_font('Arial', '', 10)
-                col_width = 65
-                col_height = 40   
-                self.set_auto_page_break(auto=True, margin=15)    
-                for i in range(len(df)):
-                    for j in range(len(df.columns)):
-                        if j == 2:
-                            self.cell(col_width, 10, "", 1)
-                        else:
-                            self.cell(col_width, 10, str(df.iloc[i, j]), 1)
-            
-                    # Filtrar a lista de imagens para remover textos
-                    imagens_validas = [item for item in lista_de_imagens if item != '...']
-            
+lista_de_imagens = st.session_state.lista_imagens
+pdf = PDF()
+pdf.add_table(df, lista_de_imagens)
 
-                    
-                df.rename(columns={2: 'Imagens das observações'}, inplace=True)       
-   
-    lista_de_imagens = st.session_state.lista_imagens        
-    pdf = PDF()
-    pdf.add_page(orientation='P')
-    pdf.add_table(df,lista_de_imagens)
-    
-    pdf_buffer = BytesIO()
-    pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
-    pdf_buffer.seek(0)
-    
-    return pdf_buffer
+pdf_buffer = BytesIO()
+pdf.output(pdf_buffer)
+pdf_buffer.seek(0)
+
+return pdf_buffer
 
 
 # Inicializa as listas no estado da sessão
