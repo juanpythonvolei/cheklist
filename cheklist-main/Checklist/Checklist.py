@@ -795,7 +795,7 @@ with col2:
                        pass
                 else:
                        
-                        st.session_state.lista_problemas.append(reclamacao_Velocidade)
+                        st.session_state.lista_problemas.append(reclamacao_Tomadas_e_cabos_da_Bateria)
                         st.session_state.lista_qtd.append('...')
                         st.warning('Problema relatado')
 
