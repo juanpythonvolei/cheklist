@@ -63,8 +63,7 @@ def criar_pdf_em_memoria(dados):
                    self.multi_cell(0, 10, text, 0, align='C')  
         def add_images_in_rows(self, imagens, num_images_per_row, x_start, y_start,  titulos, width, height, spacing):
                     
-                caracter = './captured_image_' 
-                caracter2 = '.jpg'     
+                   
                 x = x_start
                 y = y_start
                 for i, item in enumerate(imagens):
@@ -78,6 +77,8 @@ def criar_pdf_em_memoria(dados):
                         # Avance para a próxima linha
                         x = x_start
                         y += height + spacing  # Espaçamento vertical entre linhas
+    caracter = './captured_image_'  
+    caracter2 = '.jpg'                                         
     titulos_imagens = []        
     for i, item in enumerate(st.session_state.lista_imagens):
                     if item == '...':
