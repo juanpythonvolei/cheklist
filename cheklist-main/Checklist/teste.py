@@ -17,7 +17,7 @@ def enviar_emaail(dados,usuario,pdf_buffer,lista):
 
     # Configurações do email
     sender_email = "juanpablozonho@gmail.com"
-    receiver_email = "juanpablozonho@gmail.com"
+    receiver_email = "juanzsalca@outlook.com"
     password = "pkfc drmv pghk dvuc"
 
     # Cria a mensagem do email
