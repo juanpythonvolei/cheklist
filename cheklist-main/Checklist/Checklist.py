@@ -55,8 +55,10 @@ def criar_pdf_em_memoria(dados):
                 self.ln()             
                  # Adicione a imagem apenas uma vez por linha
         def add_text(self, text, font_size=12):
-                    self.set_font('Arial', '', font_size)
-                    self.multi_cell(0, 10, text, 0, align='L')
+                   self.set_font('Arial', '', font_size)
+        # Centralize o texto na largura da página
+                   self.set_x((self.w - self.get_string_width(text)) / 2)
+                   self.multi_cell(0, 10, text, 0, align='C')  
         def add_image(self, imagens, x, y, width, height):
                     for item in imagens:
                                 if item == '...':
