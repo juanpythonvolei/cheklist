@@ -802,7 +802,7 @@ st.session_state.lista_imagens.extend([''] * (max_length - len(st.session_state.
 dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas}
 
 
-pdf_buffer = criar_pdf_em_memoria(dict_resposta,st.session_state.lista_imagens)
+pdf_buffer = criar_pdf_em_memoria(dados=dict_resposta,lista_de_imagens=st.session_state.lista_imagens)
 
 
 
