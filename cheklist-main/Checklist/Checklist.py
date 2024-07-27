@@ -64,6 +64,8 @@ def criar_pdf_em_memoria(dados):
                     if i < len(imagens_validas):
                         self.image(imagens_validas[i], x=self.w - col_width, y=self.y, w=40, h=25)
                     self.ln(40)
+                    x_imagens = 150  # Posição horizontal para a coluna de imagens
+                    y_inicial = 20 
                     for imagem in imagens_validas:
                             pdf.image(imagem, x=x_imagens, y=y_inicial, w=60, h=40)
                             y_inicial += 50    
