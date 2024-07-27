@@ -140,6 +140,8 @@ elif opcao_selecionada == 'Ver Checklists':
   tabela = pd.DataFrame(dict)
   st.table(tabela)                              
   if len(lista_imagens) > 0:
-              for item in lista_imagens:
-                          exibir_imagem(item)
+              botao = st.button('Ver Imagens do Checklist')
+              if botao:
+                          for item in lista_imagens:
+                                      exibir_imagem(item)
               
