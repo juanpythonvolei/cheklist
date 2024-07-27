@@ -46,6 +46,7 @@ def criar_pdf_em_memoria(dados):
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
 
         def add_table(self, df, lista_de_imagens):
+                lista_2 = []    
                 self.set_font('Arial', '', 12)
                 col_width = 80  # Defina a largura desejada para as células
             
@@ -59,7 +60,14 @@ def criar_pdf_em_memoria(dados):
             
                     # Adicione a imagem à terceira coluna (índice 2)
                     if i < len(lista_de_imagens):
-                        self.image(lista_de_imagens[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
+                                
+                                    
+                        for item in lista_de_imagens:
+                                    if item != '...':
+                                                lista_2.append(item)
+                                    else:
+                                                pass
+                        self.image(lista_2[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
                     self.ln()
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
