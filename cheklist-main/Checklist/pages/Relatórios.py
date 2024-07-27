@@ -141,11 +141,13 @@ elif opcao_selecionada == 'Ver Checklists':
           
   dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
   tabela = pd.DataFrame(dict)
-  st.table(tabela)                              
+  st.table(tabela) 
+  caracter = './captured_image_'          
   if len(lista_imagens) > 0:
               botao = st.button('Ver Imagens do Checklist')
               if botao:
                           for item in lista_imagens:
-                                      nome = item[27:31]
+                                      
+                                      nome = item.replace(caracter,'')
                                       exibir_imagem(item,nome)
               
