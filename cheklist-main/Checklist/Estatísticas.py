@@ -40,5 +40,5 @@ def estatistica(sim,nao,imagem,usuario,data):
     else:
         pass
     ref = db.reference('Checklists')
-    dict_dados = {'Usuário':usuario,'ok':sim,'Anormais':nao,'Data':data}
+    dict_dados = {'Usuário':usuario,'ok':sim,'Anormais':nao,'Imagens':imagem,'Data':data}
     ref.child(data).push().set(dict_dados)
