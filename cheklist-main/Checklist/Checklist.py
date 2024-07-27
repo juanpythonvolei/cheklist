@@ -61,7 +61,7 @@ def criar_pdf_em_memoria(dados):
         def add_text(self, text, font_size=12):
                    self.set_font('Arial', '', font_size)
                    self.multi_cell(0, 10, text, 0, align='C')  
-        def add_images_in_rows(self, imagens, num_images_per_row, x_start, y_start,  titulos, width, height, spacing):
+        def add_images_in_rows(self, imagens, num_images_per_row, x_start, y_start,titulos, width, height, spacing):
                     
                    
                 x = x_start
@@ -92,7 +92,7 @@ def criar_pdf_em_memoria(dados):
     pdf.add_table(df)
     pdf.add_page()  # Isso cria uma nova página        
     pdf.add_text('Imagens das observações abaixo')        
-    pdf.add_images_in_rows(st.session_state.lista_imagens, num_images_per_row=5, x_start=10, y_start=90, width=30, height=30, spacing=10,titulos_imagens=titulos_imagens)
+    pdf.add_images_in_rows(st.session_state.lista_imagens, num_images_per_row=5, x_start=10, y_start=90, width=30, height=30, spacing=10,titulos=titulos_imagens)
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
     pdf_buffer.seek(0)
