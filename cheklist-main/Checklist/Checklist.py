@@ -511,6 +511,7 @@ with col2:
     if anormal_Condição_dos_Garfos:
         with col4:
             reclamacao_Condição_dos_Garfos = st.text_input(label='Digite o Problema', key='texto_cccccondição_dos_garfooooooos')
+            adicionar_imagem(nome_texto='Condição dos Garfos',nome_link='Condição dos Garfos',lista=st.session_state.lista_imagens)
             if reclamacao_Condição_dos_Garfos != '':
                 if reclamacao_Condição_dos_Garfos in st.session_state.lista_problemas:
                        pass
@@ -526,12 +527,14 @@ with col3:
                 if 'Condição dos Garfos ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Condição dos Garfos ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Condição dos Garfos ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Condição dos Garfos ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Condição_dos_Garfos, anormal=anormal_Condição_dos_Garfos, campo='Condição dos Garfos')
 
@@ -544,6 +547,7 @@ with col2:
     if anormal_Timão:
         with col4:
             reclamacao_Timão = st.text_input(label='Digite o Problema', key='texto_Timão')
+            adicionar_imagem(nome_texto='Timão',nome_link='Timão',lista=st.session_state.lista_imagens)
             if reclamacao_Timão !='':
                 if reclamacao_Timão in  st.session_state.lista_problemas:
                        pass
@@ -558,12 +562,14 @@ with col3:
                 if 'Timão ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Timão ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Timão ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Timão ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Timão, anormal=anormal_Timão, campo='Timão')
 
@@ -575,7 +581,7 @@ with col2:
     if anormal_Indicador_de_Bateria:
         with col4:
             reclamacao_Indicador_de_Bateria = st.text_input(label='Digite o Problema', key='texto_Indicador de Bateria')
-            
+            adicionar_imagem(nome_texto='Indicador de Bateria',nome_link='Indicador de Bateria',lista=st.session_state.lista_imagens)
             if reclamacao_Indicador_de_Bateria != '':
                 if reclamacao_Indicador_de_Bateria in st.session_state.lista_problemas:
                        pass
@@ -590,12 +596,14 @@ with col3:
                 if 'Indicador_de_Bateria ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Indicador de Bateria ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Indicador_de_Bateria ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Indicador de Bateria ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Indicador_de_Bateria, anormal=anormal_Indicador_de_Bateria, campo='Indicador de Bateria')
 
@@ -607,7 +615,7 @@ with col2:
     if anormal_Freio_de_Serviço:
         with col4:
             reclamacao_Freio_de_Serviço = st.text_input(label='Digite o Problema', key='texto_Freio de Serviço')
-           
+            adicionar_imagem(nome_texto='Freio de Serviço',nome_link='Freio de Serviço',lista=st.session_state.lista_imagens)          
             if reclamacao_Freio_de_Serviço != '':
                 if reclamacao_Freio_de_Serviço in st.session_state.lista_problemas:
                        pass
@@ -623,12 +631,15 @@ with col3:
                 if 'Freio de Serviço ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Freio de Serviço ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Freio de Serviço ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Freio de Serviço ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
+                                                                
 
 preenchimento(normal=normal_Freio_de_Serviço, anormal=anormal_Freio_de_Serviço, campo='Freio de Serviço')
 
@@ -640,7 +651,7 @@ with col2:
     if anormal_Reversão:
         with col4:
             reclamacao_Reversão = st.text_input(label='Digite o Problema', key='texto_Reversão')
-            
+            adicionar_imagem(nome_texto='Reversão',nome_link='Reversão',lista=st.session_state.lista_imagens)
             if reclamacao_Reversão !='':
                 if reclamacao_Reversão in st.session_state.lista_problemas:
                        pass
@@ -656,12 +667,14 @@ with col3:
                 if 'Reversão ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Reversão ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Reversão ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Reversão ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 
 preenchimento(normal=normal_Reversão, anormal=anormal_Reversão, campo='Reversão')
@@ -674,6 +687,7 @@ with col2:
     if anormal_Velocidade:
         with col4:
             reclamacao_Velocidade = st.text_input(label='Digite o Problema', key='texto_Velocidade')
+            adicionar_imagem(nome_texto='Velocidade',nome_link='Velocidade',lista=st.session_state.lista_imagens)
             if reclamacao_Velocidade !='':
                 if reclamacao_Velocidade in st.session_state.lista_problemas:
                        pass
@@ -689,12 +703,14 @@ with col3:
                 if 'Velocidade ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Velocidade ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Velocidade ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Velocidade ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Velocidade, anormal=anormal_Velocidade, campo='Velocidade')
 
@@ -707,6 +723,7 @@ with col2:
     if anormal_Ruidos:
         with col4:
             reclamacao_Ruidos = st.text_input(label='Digite o Problema', key='texto_Ruidos')
+            adicionar_imagem(nome_texto='Ruidos',nome_link='Ruidos',lista=st.session_state.lista_imagens)
             if reclamacao_Ruidos !='':
                 if reclamacao_Ruidos in st.session_state.lista_problemas:
                        pass
@@ -722,12 +739,14 @@ with col3:
                 if 'Ruidos ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Ruidos ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Ruidos ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Ruidos ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Ruidos, anormal=anormal_Ruidos, campo='Ruidos')
 
@@ -740,6 +759,7 @@ with col2:
     if anormal_Tomadas_e_cabos_da_Bateria:
         with col4:
             reclamacao_Tomadas_e_cabos_da_Bateria = st.text_input(label='Digite o Problema', key='texto_Tomadas e cabos da Bateria')
+            adicionar_imagem(nome_texto='Tomadas e cabos da Bateria',nome_link='Tomadas e cabos da Bateria',lista=st.session_state.lista_imagens)
             if reclamacao_Tomadas_e_cabos_da_Bateria !='':
                 if reclamacao_Tomadas_e_cabos_da_Bateria in st.session_state.lista_problemas:
                        pass
@@ -755,20 +775,22 @@ with col3:
                 if 'Tomadas e cabos da Bateria ok' not in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.append('Tomadas e cabos da Bateria ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
                 else:
                        pass
         else:
                 if 'Tomadas e cabos da Bateria ok' in st.session_state.lista_qtd:
                         st.session_state.lista_qtd.remove('Tomadas e cabos da Bateria ok')
                         st.session_state.lista_problemas.append('...')
+                        st.session_state.lista_imagens.append('...')
 
 preenchimento(normal=normal_Tomadas_e_cabos_da_Bateria, anormal=anormal_Tomadas_e_cabos_da_Bateria, campo='Tomadas e cabos da Bateria')
 
-max_length = max(len(st.session_state.lista_qtd), len(st.session_state.lista_problemas))
+max_length = max(len(st.session_state.lista_qtd), len(st.session_state.lista_problemas,len(st.session_state.lista_imagens)))
 st.session_state.lista_qtd.extend([''] * (max_length - len(st.session_state.lista_qtd)))
 st.session_state.lista_problemas.extend([''] * (max_length - len(st.session_state.lista_problemas)))
-
-dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas}
+st.session_state.lista_imagens.extend([''] * (max_length - len(st.session_state.lista_problemas)))
+dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas,'Imagens':st.session_state.lista_imagens}
 
 
 pdf_buffer = criar_pdf_em_memoria(dict_resposta)
