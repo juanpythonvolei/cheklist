@@ -37,7 +37,10 @@ def enviar_emaail(dados,usuario,pdf_buffer,lista):
     </body>
     </html>
     """
-
+    for item in lista:
+        caminho_imagem = item
+        imagem_html = f'<img src="{caminho_imagem}" alt="Imagem {item}">'
+        tabela_html = tabela_html.replace(f"<td>{item}</td>", f"<td>{imagem_html}</td>")
     # Anexa a parte HTML ao email
     part = MIMEText(html, "html")
     msg.attach(part)
@@ -80,10 +83,7 @@ def enviar_emaail2(dados,usuario,pdf_buffer):
     </body>
     </html>
     """
-    for item in lista:
-        caminho_imagem = item
-        imagem_html = f'<img src="{caminho_imagem}" alt="Imagem {item}">'
-        tabela_html = tabela_html.replace(f"<td>{item}</td>", f"<td>{imagem_html}</td>")
+    
     # Anexa a parte HTML ao email
     part = MIMEText(html, "html")
     msg.attach(part)
