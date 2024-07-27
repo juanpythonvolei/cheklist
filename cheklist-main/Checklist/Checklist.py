@@ -73,7 +73,7 @@ def criar_pdf_em_memoria(dados):
     pdf.add_page()
     pdf.add_table(df)
     pdf.add_text('Imagens das observações abaixo')        
-    pdf.add_image(st.session_state.lista_imagens, x=10, y=250, width=40, height=40)
+    pdf.add_image(st.session_state.lista_imagens, x=10, y=200, width=40, height=40)
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
     pdf_buffer.seek(0)
