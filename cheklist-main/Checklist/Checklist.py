@@ -65,7 +65,7 @@ def criar_pdf_em_memoria(dados):
 
     pdf = PDF()
     pdf.add_page()
-    pdf.add_table(df)
+    pdf.add_table(df,st.session_state.lista_imagens)
     
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
@@ -801,9 +801,9 @@ st.session_state.lista_qtd.extend([''] * (max_length - len(st.session_state.list
 st.session_state.lista_problemas.extend([''] * (max_length - len(st.session_state.lista_problemas)))
 st.session_state.lista_imagens.extend([''] * (max_length - len(st.session_state.lista_problemas)))
 dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas}
-
-
 pdf_buffer = criar_pdf_em_memoria(dict_resposta)
+pdf.add_table(df, lista_de_imagens)
+
 
 
 
