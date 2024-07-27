@@ -39,7 +39,7 @@ if usuario:
 
 def criar_pdf_em_memoria(dados):
     df = pd.DataFrame(dados)
-
+    lista2 =[]        
     class PDF(FPDF):
         def header(self):
             self.set_font('Arial', 'B', 12)
@@ -60,7 +60,12 @@ def criar_pdf_em_memoria(dados):
             
                     # Adicione a imagem à terceira coluna (índice 2)
                 if i < len(lista_de_imagens):
-                        self.image(lista_de_imagens[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
+                        for item in lista_de_imagens:
+                                    if item !='...':
+                                                lista2.append(item)
+                                    else:
+                                                pass
+                        self.image(lista2[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
                 self.ln()                    
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
