@@ -92,16 +92,16 @@ try:
                                                                         lista_problema.append(item) 
                           for item in lista_problema:
                             texto_problemas += item
-                          GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
-                          genai.configure(api_key=GOOGLE_API_KEY)
-                          
-                          model = genai.GenerativeModel('gemini-1.5-flash')
-                          
-                          chat = model.start_chat(history=[])
-                          
-                          response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual o problema, como óleo, rodas etc,que mais se repete dentre as queixas:\n\n{texto_problemas}\n')
-                          resposta = response.text
-                          st.write(f'{resposta}')
+                            GOOGLE_API_KEY = 'AIzaSyB2uaEtcP8T2_Fy6bhmXC3828qysZEqjNQ'
+                            genai.configure(api_key=GOOGLE_API_KEY)
+                            model = genai.GenerativeModel('gemini-1.5-flash')
+                            chat = model.start_chat(history=[])
+                            response = chat.send_message(f'Analisando os problemas relatados a seguir, me diga qual o problema, como óleo, rodas etc,que mais se repete dentre as queixas:\n\n{texto_problemas}\n')
+                            resposta = response.text
+                            st.write(f'{resposta}')                              
+                                                
+                                                 
+                                                         
               
                          
             elif opcao_selecionada == 'Ver Checklists':
