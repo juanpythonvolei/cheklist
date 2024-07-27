@@ -35,9 +35,11 @@ try:
             requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
             roteiro = requiscao.json()
             dados = roteiro['Checklists']
-            if opcao_selecionada == 'Dados Gerais':
+except:
+            st.warning('Não há Checklists para analisar')
+if opcao_selecionada == 'Dados Gerais':
           
-              for item in dados:
+for item in dados:
                                           lista.append(item)          
                                           Checklist = dados[f'{item}']
                                           for elemento in Checklist:
@@ -51,8 +53,8 @@ try:
                                                    for item in lista_anormal:
                                                         if item  != '...':
                                                           lista_problema.append(item) 
-  except:           
-             st.warning('Não há Checklists para analisar')
+           
+             
   
   percentual = float((len(lista_normais)/(len(lista_normais)+len(lista_problema)))*100)
   Total_positivas = len(lista_normais)
