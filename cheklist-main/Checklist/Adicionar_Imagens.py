@@ -10,7 +10,10 @@ def adicionar_imagem(nome_texto,nome_link,lista):
     else:
         pass
 def exibir_imagem(link,nome):
-    st.warning(f'Imagem do item {nome} abaixo')
-    image = Image.open(link)
-    st.image(image, use_column_width=True)
-    st.divider()
+    try:
+        st.warning(f'Imagem do item {nome} abaixo')
+        image = Image.open(link)
+        st.image(image, use_column_width=True)
+        st.divider()
+    except:
+        pass
