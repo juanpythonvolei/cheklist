@@ -160,7 +160,7 @@ with col2:
     if anormal_Chave:
         with col4:
             reclamacao_Chave = st.text_input(label='Digite o Problema', key='texto_Chave liga/desliga')
-            adicionar_imagem(nome_texto='Chave liga/desliga',nome_link='Chave liga/desliga',lista=st.session_state.lista_imagens) 
+            adicionar_imagem(nome_texto='Chave liga/desliga',nome_link='Chave liga_desliga',lista=st.session_state.lista_imagens) 
             if reclamacao_Chave != '':
                 if reclamacao_Chave in st.session_state.lista_problemas:
                       pass
