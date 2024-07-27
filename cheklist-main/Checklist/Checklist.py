@@ -64,9 +64,7 @@ def criar_pdf_em_memoria(dados):
                                     
                         for item in lista_de_imagens:
                                     if item != '...':
-                                                if item in lista_2:
-                                                            pass
-                                                else:
+
                                                             lista_2.append(item)
                                     else:
                                                 pass
