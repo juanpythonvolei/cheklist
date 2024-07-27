@@ -46,27 +46,23 @@ def criar_pdf_em_memoria(dados):
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
 
         def add_table(self, df, lista_de_imagens):
-                   
                 self.set_font('Arial', '', 12)
-                col_width = 80  # Defina a largura desejada para as células
+                col_width = 80
             
                 for i in range(len(df)):
                     for j in range(len(df.columns)):
-                        if j == 2:  # Terceira coluna (índice 2) para as imagens
-                            # Adicione a imagem à célula
-                            self.cell(col_width, 10, "", 1)  # Deixe a célula vazia para as imagens
+                        if j == 2:
+                            self.cell(col_width, 10, "", 1)
                         else:
                             self.cell(col_width, 10, str(df.iloc[i, j]), 1)
             
-                    # Adicione a imagem à terceira coluna (índice 2)
-                if i < len(lista_de_imagens):
-                        for item in lista_de_imagens:
-                                    if item !='...':
-                                                lista2.append(item)
-                                    else:
-                                                pass
-                        self.image(lista2[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
-                self.ln()                    
+                    # Filtrar a lista de imagens para remover textos
+                    imagens_validas = [item for item in lista_de_imagens if item != '...']
+            
+                    # Adicione a imagem apenas uma vez por linha
+                    if i < len(imagens_validas):
+                        self.image(imagens_validas[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
+                    self.ln()                    
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
     pdf.add_page()
