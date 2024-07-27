@@ -63,11 +63,7 @@ def criar_pdf_em_memoria(dados):
 
                     
                 df.rename(columns={2: 'Imagens das observações'}, inplace=True)       
-                x_imagens = 150  # Posição horizontal para a coluna de imagens
-                y_inicial = 20 
-                for imagem in imagens_validas:            
-                            pdf.image(imagem, x=x_imagens, y=y_inicial, w=60, h=40)
-                            y_inicial += 50        
+   
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
     pdf.add_page(orientation='P')
