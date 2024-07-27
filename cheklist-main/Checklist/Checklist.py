@@ -64,6 +64,9 @@ def criar_pdf_em_memoria(dados):
                     if i < len(imagens_validas):
                         self.image(imagens_validas[i], x=self.w - col_width, y=self.y, w=40, h=25)
                     self.ln(40)
+                    for imagem in imagens_validas:
+                            pdf.image(imagem, x=x_imagens, y=y_inicial, w=60, h=40)
+                            y_inicial += 50    
                 df.rename(columns={2: 'Imagens das observações'}, inplace=True)            
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
