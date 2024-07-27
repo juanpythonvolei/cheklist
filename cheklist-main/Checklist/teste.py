@@ -80,7 +80,10 @@ def enviar_emaail2(dados,usuario,pdf_buffer):
     </body>
     </html>
     """
-
+    for index, row in df.iterrows():
+        caminho_imagem = row["Imagens"]
+        imagem_html = f'<img src="{caminho_imagem}" alt="Imagem {index}">'
+        tabela_html = tabela_html.replace(f"<td>{index}</td>", f"<td>{imagem_html}</td>")
     # Anexa a parte HTML ao email
     part = MIMEText(html, "html")
     msg.attach(part)
