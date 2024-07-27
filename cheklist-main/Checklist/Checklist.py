@@ -37,40 +37,38 @@ if usuario:
             st.warning('Novo Checklist Iniciado ✔️')
             st.markdown(f'<div class="my-square">Seja Bem-vindo, {usuario}</div>', unsafe_allow_html=True)
 
-def criar_pdf_em_memoria(dados):
+def criar_pdf_em_memoria(dados,imagens):
+    lista2 = []        
     df = pd.DataFrame(dados)
-    lista2 =[]        
+
     class PDF(FPDF):
         def header(self):
             self.set_font('Arial', 'B', 12)
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
 
-        def add_table(self, df, lista_de_imagens):
-                self.set_font('Arial', '', 12)
-                col_width = 80
-            
-                for i in range(len(df)):
-                    for j in range(len(df.columns)):
-                        if j == 2:
-                            self.cell(col_width, 10, "", 1)
-                        else:
-                            self.cell(col_width, 10, str(df.iloc[i, j]), 1)
-            
-                    # Filtrar a lista de imagens para remover textos
-                imagens_validas = [item for item in lista_de_imagens if item != '...']
-                x_imagens = 150  # Posição horizontal para a coluna de imagens
-                y_inicial = 20     # Posição vertical inicial
-                        
-                for imagem in imagens_validas:        
-                            pdf.image(imagem, x=x_imagens, y=y_inicial, w=60, h=40)
-                            y_inicial += 50             
+        def add_table(self, df):
+            self.set_font('Arial', '', 12)
+            col_width = 80  # Defina a largura desejada para as células
+            for i in range(len(df)):
+                for j in range(len(df.columns)):
+                    self.cell(col_width, 10, str(df.iloc[i, j]), 1)
+                self.ln()             
                  # Adicione a imagem apenas uma vez por linha
-                                                 
-    lista_de_imagens = st.session_state.lista_imagens        
+        
+        def add_image(self, image_path, x, y, width, height):
+                    for item in imagens:
+                                if item == '...':
+                                            pass
+                                else:
+                                            lista2.append(item)
+        # Adicione a imagem ao PDF
+                    for item in lista2:
+                                self.image(image_path, x, y, width, height)            
+           
     pdf = PDF()
     pdf.add_page()
-    pdf.add_table(df,lista_de_imagens)
-    
+    pdf.add_table(df)
+    pdf.add_image(st.session_state.lista_imagens, x=10, y=150, width=100, height=100)
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
     pdf_buffer.seek(0)
