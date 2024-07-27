@@ -57,15 +57,15 @@ def criar_pdf_em_memoria(dados):
                             self.cell(col_width, 10, str(df.iloc[i, j]), 1)
             
                     # Filtrar a lista de imagens para remover textos
-                    imagens_validas = [item for item in lista_de_imagens if item != '...']
-            
-                    # Adicione a imagem apenas uma vez por linha
-                    x_imagens = 150  # Posição horizontal para a coluna de imagens
-                    y_inicial = 20    # Posição vertical inicial
+                imagens_validas = [item for item in lista_de_imagens if item != '...']
+                x_imagens = 150  # Posição horizontal para a coluna de imagens
+                y_inicial = 20     # Posição vertical inicial
                         
-                    for imagem in imagens_validas:    
+                for imagem in imagens_validas:        
                             pdf.image(imagem, x=x_imagens, y=y_inicial, w=60, h=40)
-                            y_inicial += 50                        
+                            y_inicial += 50             
+                 # Adicione a imagem apenas uma vez por linha
+                                                 
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
     pdf.add_page()
