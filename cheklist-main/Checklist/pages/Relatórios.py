@@ -39,7 +39,7 @@ except:
             st.warning('Não há Checklists para analisar')
 if opcao_selecionada == 'Dados Gerais':
           
-            for item in dados:
+              for item in dados:          
                                           lista.append(item)          
                                           Checklist = dados[f'{item}']
                                           for elemento in Checklist:
@@ -55,18 +55,18 @@ if opcao_selecionada == 'Dados Gerais':
                                                           lista_problema.append(item) 
            
              
-  
-  percentual = float((len(lista_normais)/(len(lista_normais)+len(lista_problema)))*100)
-  Total_positivas = len(lista_normais)
-  Total_negativas = len(lista_problema)
-  Total = len(lista)
-  st.markdown(f'<div class="my-square">{Total} Cheklists foram encontrados</div>', unsafe_allow_html=True)
-  st.divider()          
-  st.markdown(f'<div class="my-square">Total de Verificações Positivas: {Total_positivas}</div>', unsafe_allow_html=True)
-  st.divider()          
-  st.markdown(f'<div class="my-square">Total de Verificações Negativas: {Total_negativas}</div>', unsafe_allow_html=True)
-  st.divider()          
-  st.markdown(f'<div class="my-square">Percentual de Positividade Total: {percentual:.2f} %</div>', unsafe_allow_html=True)
+              
+              percentual = float((len(lista_normais)/(len(lista_normais)+len(lista_problema)))*100)
+              Total_positivas = len(lista_normais)
+              Total_negativas = len(lista_problema)
+              Total = len(lista)
+              st.markdown(f'<div class="my-square">{Total} Cheklists foram encontrados</div>', unsafe_allow_html=True)
+              st.divider()          
+              st.markdown(f'<div class="my-square">Total de Verificações Positivas: {Total_positivas}</div>', unsafe_allow_html=True)
+              st.divider()          
+              st.markdown(f'<div class="my-square">Total de Verificações Negativas: {Total_negativas}</div>', unsafe_allow_html=True)
+              st.divider()          
+              st.markdown(f'<div class="my-square">Percentual de Positividade Total: {percentual:.2f} %</div>', unsafe_allow_html=True)
 
 elif opcao_selecionada == 'Item com mais ocorrências':
   lista_item_repetido =[]
