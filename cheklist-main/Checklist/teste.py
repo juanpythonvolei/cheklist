@@ -7,7 +7,7 @@ import pandas as pd
 
 # Exemplo de dicionário
 
-def enviar_emaail(dados,usuario,pdf_buffer):
+def enviar_emaail(dados,usuario,pdf_buffer,lista):
 
 
     df = pd.DataFrame(dados)
@@ -80,8 +80,8 @@ def enviar_emaail2(dados,usuario,pdf_buffer):
     </body>
     </html>
     """
-    for index, row in df.iterrows():
-        caminho_imagem = row["Imagens"]
+    for item in lista:
+        caminho_imagem = item
         imagem_html = f'<img src="{caminho_imagem}" alt="Imagem {index}">'
         tabela_html = tabela_html.replace(f"<td>{index}</td>", f"<td>{imagem_html}</td>")
     # Anexa a parte HTML ao email
