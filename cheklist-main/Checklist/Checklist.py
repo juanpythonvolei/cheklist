@@ -46,8 +46,8 @@ def criar_pdf_em_memoria(dados):
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
 
         def add_table(self, df, lista_de_imagens):
-                self.set_font('Arial', '', 12)
-                col_width = 80
+                self.set_font('Arial', '', 10)
+                col_width = 60
                 col_height = 40   
                 self.set_auto_page_break(auto=True, margin=15)    
                 for i in range(len(df)):
