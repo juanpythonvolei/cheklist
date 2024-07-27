@@ -71,14 +71,14 @@ def criar_pdf_em_memoria(dados):
                     
                     for item in lista2:
                                             self.image(item, x,y, width, height)
-                                            x += 50
+                                            x += 5
 
     pdf = PDF()
     pdf.add_page()
     pdf.add_table(df)
     pdf.add_page()  # Isso cria uma nova página        
     pdf.add_text('Imagens das observações abaixo')        
-    pdf.add_image(st.session_state.lista_imagens, x=10, y=10, width=30, height=30)
+    pdf.add_image(st.session_state.lista_imagens, x=1s, y=30, width=30, height=30)
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
     pdf_buffer.seek(0)
