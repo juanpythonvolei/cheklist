@@ -62,6 +62,7 @@ def criar_pdf_em_memoria(dados):
                    self.set_font('Arial', '', font_size)
                    self.multi_cell(0, 10, text, 0, align='C')  
         def add_images_in_rows(self, imagens, num_images_per_row, x_start, y_start, width, height, spacing):
+                titulos_imagens = []    
                 caracter = './captured_image_' 
                 caracter2 = '.jpg'     
                 x = x_start
@@ -72,8 +73,9 @@ def criar_pdf_em_memoria(dados):
                     else:    
                                 nome = item.replace(caracter,'')
                                 nome = nome.replace(caracter2,'')
+                                titulos_imagens.append(nome)
                     self.set_font('Arial', 'B', 10)
-                    self.cell(width, 10, f'{nome}', 0, 1, 'C')            
+                    self.cell(width, 10,titulos_imagens[i], 0, 1, 'C')            
                     self.image(item, x, y, width, height)
                     x += width + spacing  # Espaçamento horizontal entre imagens
                     if (i + 1) % num_images_per_row == 0:
