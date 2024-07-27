@@ -153,7 +153,7 @@ elif opcao_selecionada == 'Ver Checklists':
                                                   nome = item.replace(caracter,'')
                                                   nome = nome.replace(caracter2,'')
                                                   if caracter3 in nome:
-                                                              nome = nome.replace(caracter3, )
+                                                              nome = nome.replace(caracter3,' ')
                                                               exibir_imagem(item,nome)
                                                   else:
                                                          exibir_imagem(item,nome)     
