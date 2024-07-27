@@ -169,5 +169,5 @@ try:
                                                                           
                                                               except:
                                                                           pass
-  except:
+except:
             st.warning('Não há Checklists para analisar')
