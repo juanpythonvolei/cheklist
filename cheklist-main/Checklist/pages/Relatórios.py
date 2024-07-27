@@ -143,7 +143,8 @@ elif opcao_selecionada == 'Ver Checklists':
   tabela = pd.DataFrame(dict)
   st.table(tabela) 
   caracter = './captured_image_'
-  caracter2 = '.jpg'          
+  caracter2 = '.jpg'
+  caracter3 = '_'          
   if len(lista_imagens) > 0:
               botao = st.button('Ver Imagens do Checklist')
               if botao:
@@ -151,6 +152,12 @@ elif opcao_selecionada == 'Ver Checklists':
                                       try:
                                                   nome = item.replace(caracter,'')
                                                   nome = nome.replace(caracter2,'')
-                                                  exibir_imagem(item,nome)
+                                                  if caracter3 in nome:
+                                                              nome = nome.replace(caracter3, )
+                                                              exibir_imagem(item,nome)
+                                                  else:
+                                                         exibir_imagem(item,nome)     
+                                                            
+                                                  
                                       except:
                                                   pass
