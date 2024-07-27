@@ -54,7 +54,9 @@ def criar_pdf_em_memoria(dados):
                     self.cell(col_width, 10, str(df.iloc[i, j]), 1)
                 self.ln()             
                  # Adicione a imagem apenas uma vez por linha
-        
+        def add_text(self, text, font_size=12):
+                    self.set_font('Arial', '', font_size)
+                    self.multi_cell(0, 10, text, 0, align='L')
         def add_image(self, imagens, x, y, width, height):
                     for item in imagens:
                                 if item == '...':
@@ -69,6 +71,7 @@ def criar_pdf_em_memoria(dados):
     pdf = PDF()
     pdf.add_page()
     pdf.add_table(df)
+    pdf.add_text('Imagens das observações')        
     pdf.add_image(st.session_state.lista_imagens, x=10, y=250, width=40, height=40)
     pdf_buffer = BytesIO()
     pdf_buffer.write(pdf.output(dest='S').encode('latin1'))
