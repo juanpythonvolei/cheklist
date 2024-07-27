@@ -13,3 +13,4 @@ def exibir_imagem(link,nome):
     st.warning(f'{nome}')
     image = Image.open(link)
     st.image(image, use_column_width=True)
+    st.divider()
