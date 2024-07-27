@@ -43,9 +43,9 @@ def criar_pdf_em_memoria(dados):
             
     class PDF(FPDF):    
          def __init__(self):
-                    super().__init__()
-                    self.w = 310  # Largura da página em milímetros (padrão é 210)
-                    self.h = 310  # Altura da página em milímetros (padrão é 297)        
+            super().__init__()
+            self.w = 310  # Largura da página em milímetros (padrão é 210)
+            self.h = 310  # Altura da página em milímetros (padrão é 297)                                
         def header(self):
             self.set_font('Arial', 'B', 12)
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
