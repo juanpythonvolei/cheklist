@@ -65,7 +65,7 @@ def criar_pdf_em_memoria(dados):
                 df.rename(columns={2: 'Imagens das observações'}, inplace=True)            
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
-    pdf.add_page(format='letter', orientation='P')
+    pdf.add_page(format='letter')
     pdf.add_table(df,lista_de_imagens)
     
     pdf_buffer = BytesIO()
