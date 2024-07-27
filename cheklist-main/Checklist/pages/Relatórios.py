@@ -148,8 +148,9 @@ elif opcao_selecionada == 'Ver Checklists':
               botao = st.button('Ver Imagens do Checklist')
               if botao:
                           for item in lista_imagens:
-                                      
-                                      nome = item.replace(caracter,'')
-                                      nome = nome.replace(caracter2,'')
-                                      exibir_imagem(item,nome)
-              
+                                      try:
+                                                  nome = item.replace(caracter,'')
+                                                  nome = nome.replace(caracter2,'')
+                                                  exibir_imagem(item,nome)
+                                      except:
+                                                  pass
