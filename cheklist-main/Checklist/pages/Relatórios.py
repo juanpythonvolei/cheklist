@@ -28,7 +28,7 @@ lista_normais = []
 lista = []
 lista_problema = []
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-opcao_selecionada = st.selectbox("Selecione uma Opação",['Dados Gerais','Item com mais ocorrências','Ver Checklists'])
+opcao_selecionada = st.selectbox("Selecione uma Opção",['Dados Gerais','Item com mais ocorrências','Ver Checklists'])
 
 lista_nomes = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
