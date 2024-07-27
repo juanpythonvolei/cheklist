@@ -109,7 +109,7 @@ elif opcao_selecionada == 'Ver Checklists':
   seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)          
   lista_item_repetido =[]
   lista_normais = []
-  
+  lista_imagens = []
   lista_problema = []
   texto_problemas = ''
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
@@ -131,7 +131,10 @@ elif opcao_selecionada == 'Ver Checklists':
                                                lista_anormal = espec['Anormais'] 
                                                for item in lista_anormal:
                                                       lista_problema.append(item) 
-    dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema}
+                                               lista1 = espec['Imagens']
+                                               for item in lista11:
+                                                           lista_imagens.append(item)
+    dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema,'Imgens':lista_imagens}
     tabela = pd.DataFrame(dict)
     st.table(tabela)
   except:
