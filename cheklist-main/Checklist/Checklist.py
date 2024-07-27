@@ -59,7 +59,7 @@ def criar_pdf_em_memoria(dados):
                             self.cell(col_width, 10, str(df.iloc[i, j]), 1)
             
                     # Adicione a imagem à terceira coluna (índice 2)
-                    if i < len(lista_de_imagens):
+                if i < len(lista_de_imagens):        
                                 
                                     
                         for item in lista_de_imagens:
