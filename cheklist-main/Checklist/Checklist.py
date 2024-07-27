@@ -800,9 +800,10 @@ pdf_buffer = criar_pdf_em_memoria(dict_resposta)
 botao_email = st.button('Enviar Cheklist')
 if botao_email:
     enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer)       
-    estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada)        
+    estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada,imagem=st.session_state.lista_imagens)        
     st.session_state.lista_qtd = []
     st.session_state.lista_problemas = []
+    st.session_state.lista_imagens = []        
     st.session_state.mostrar_reclamacao = False
     reset_checkboxes()
     st.warning('Relatório Enviado')
