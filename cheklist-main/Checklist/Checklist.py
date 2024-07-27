@@ -39,6 +39,8 @@ if usuario:
 
 def criar_pdf_em_memoria(dados):
     df = pd.DataFrame(dados)
+    pdf.add_page(format='letter', orientation='P')
+    pdf.add_table(df, lista_de_imagens)        
     lista2 =[]        
     class PDF(FPDF):
         def header(self):
@@ -48,8 +50,6 @@ def criar_pdf_em_memoria(dados):
         def add_table(self, df, lista_de_imagens):
                 self.set_font('Arial', '', 12)
                 col_width = 80
-                self.set_auto_page_break(auto=True, margin=15)
-                self.add_page(format='letter', orientation='P')
                 for i in range(len(df)):
                     for j in range(len(df.columns)):
                         if j == 2:
