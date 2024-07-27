@@ -31,11 +31,12 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 opcao_selecionada = st.selectbox("Selecione uma Opção",['Dados Gerais','Item com mais ocorrências','Ver Checklists'])
 
 lista_nomes = []
-requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-roteiro = requiscao.json()
-dados = roteiro['Checklists']
-if opcao_selecionada == 'Dados Gerais':
-  try:          
+try:
+            requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+            roteiro = requiscao.json()
+            dados = roteiro['Checklists']
+            if opcao_selecionada == 'Dados Gerais':
+          
               for item in dados:
                                           lista.append(item)          
                                           Checklist = dados[f'{item}']
