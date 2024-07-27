@@ -67,14 +67,14 @@ def criar_pdf_em_memoria(dados):
                                     if i < len(imagens_validas):
                                         self.image(imagens_validas[i], x=self.w - col_width, y=self.y, w=60, h=40)
                                     self.ln()
-
-                            lista_de_imagens = st.session_state.lista_imagens
-                            pdf = PDF()
-                            pdf.add_table(df, lista_de_imagens)
-                            pdf_buffer = BytesIO()
-                            pdf.output(pdf_buffer)
-                            pdf_buffer.seek(0)
-                            return pdf_buffer          
+                               lista_de_imagens = st.session_state.lista_imagens
+                               pdf = PDF()
+                               pdf.add_table(df, lista_de_imagens)
+                               pdf_buffer = BytesIO()
+                               pdf.output(pdf_buffer)
+                               pdf_buffer.seek(0)
+                               return pdf_buffer           
+                                      
                                                                                          
                      
 
