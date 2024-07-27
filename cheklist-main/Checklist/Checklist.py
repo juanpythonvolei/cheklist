@@ -45,13 +45,22 @@ def criar_pdf_em_memoria(dados):
             self.set_font('Arial', 'B', 12)
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
 
-        def add_table(self, df):
-            self.set_font('Arial', '', 12)
-            col_width = 80  # Defina a largura desejada para as células
-            for i in range(len(df)):
-                for j in range(len(df.columns)):
-                    self.cell(col_width, 10, str(df.iloc[i, j]), 1)
-                self.ln()
+        def add_table(self, df, lista_de_imagens=st.session_state.lista_imagens):
+                self.set_font('Arial', '', 12)
+                col_width = 80  # Defina a largura desejada para as células
+            
+                for i in range(len(df)):
+                    for j in range(len(df.columns)):
+                        if j == 2:  # Terceira coluna (índice 2) para as imagens
+                            # Adicione a imagem à célula
+                            self.cell(col_width, 10, "", 1)  # Deixe a célula vazia para as imagens
+                        else:
+                            self.cell(col_width, 10, str(df.iloc[i, j]), 1)
+            
+                    # Adicione a imagem à terceira coluna (índice 2)
+                    if i < len(lista_de_imagens):
+                        self.image(lista_de_imagens[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
+                    self.ln()
 
     pdf = PDF()
     pdf.add_page()
