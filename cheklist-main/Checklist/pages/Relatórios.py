@@ -132,7 +132,7 @@ elif opcao_selecionada == 'Ver Checklists':
                                                for item in lista_anormal:
                                                       lista_problema.append(item) 
                                                lista1 = espec['Imagens']
-                                               for item in lista11:
+                                               for item in lista1:
                                                            lista_imagens.append(item)
           
   dict = {'Itens ok':lista_normais,'Itens Anormais':lista_problema,'Imgens':lista_imagens}
