@@ -147,5 +147,5 @@ elif opcao_selecionada == 'Ver Checklists':
               if botao:
                           for item in lista_imagens:
                                       nome = item[27:31]
-                                      exibir_imagem(item)
+                                      exibir_imagem(item,nome)
               
