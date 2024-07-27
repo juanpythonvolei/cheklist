@@ -68,9 +68,7 @@ def criar_pdf_em_memoria(dados):
                 y = y_start
                 for i, item in enumerate(imagens):
                     if item == '...':
-                        continue  # Pule se for um marcador especial (se necessário)
-                    self.set_font('Arial', 'B', 10)
-                    self.cell(width, 10,titulos_imagens[i], 0, 1, 'C')            
+                        continue  # Pule se for um marcador especial (se necessário)         
                     self.image(item, x, y, width, height)
                     x += width + spacing  # Espaçamento horizontal entre imagens
                     if (i + 1) % num_images_per_row == 0:
