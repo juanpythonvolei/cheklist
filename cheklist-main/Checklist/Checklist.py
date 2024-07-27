@@ -45,7 +45,7 @@ def criar_pdf_em_memoria(dados):
         def __init__(self):
             super().__init__()
             self.w = 310  # Largura da página em milímetros (padrão é 210)
-            self.h = 3100  # Altura da página em milímetros (padrão é 297)                                 
+            self.h = 310  # Altura da página em milímetros (padrão é 297)                                 
         def header(self):
             self.set_font('Arial', 'B', 12)
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
@@ -76,6 +76,7 @@ def criar_pdf_em_memoria(dados):
     pdf = PDF()
     pdf.add_page()
     pdf.add_table(df)
+    pdf.add_page()  # Isso cria uma nova página        
     pdf.add_text('Imagens das observações abaixo')        
     pdf.add_image(st.session_state.lista_imagens, x=10, y=250, width=30, height=30)
     pdf_buffer = BytesIO()
