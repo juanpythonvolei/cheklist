@@ -50,7 +50,7 @@ if opcao_selecionada == 'Dados Gerais':
                                                    for item in lista_anormal:
                                                         if item  != '...':
                                                           lista_problema.append(item) 
- except:
+  except:           
              st.warning('Não há Checklists para analisar')
   
   percentual = float((len(lista_normais)/(len(lista_normais)+len(lista_problema)))*100)
