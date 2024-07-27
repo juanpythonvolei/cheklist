@@ -61,8 +61,9 @@ def criar_pdf_em_memoria(dados):
             
                     # Adicione a imagem apenas uma vez por linha
                     if i < len(imagens_validas):
-                        self.image(imagens_validas[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
-                    self.ln()                    
+                        self.image(lista_de_imagens[i], x=self.w - col_width, y=self.y, w=60, h=40)
+                    self.ln()
+    df.rename(columns={2: 'Imagens das observações'}, inplace=True)                        
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
     pdf.add_page()
