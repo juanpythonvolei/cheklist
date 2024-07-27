@@ -790,7 +790,7 @@ max_length = max(len(st.session_state.lista_qtd), len(st.session_state.lista_pro
 st.session_state.lista_qtd.extend([''] * (max_length - len(st.session_state.lista_qtd)))
 st.session_state.lista_problemas.extend([''] * (max_length - len(st.session_state.lista_problemas)))
 st.session_state.lista_imagens.extend([''] * (max_length - len(st.session_state.lista_problemas)))
-dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas,'Imagens':st.session_state.lista_imagens}
+dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas}
 
 
 pdf_buffer = criar_pdf_em_memoria(dict_resposta)
@@ -799,7 +799,7 @@ pdf_buffer = criar_pdf_em_memoria(dict_resposta)
 
 botao_email = st.button('Enviar Cheklist')
 if botao_email:
-    enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer)       
+    enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer,lista = st.session_state.lista_imagens)       
     estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada,imagem=st.session_state.lista_imagens)        
     st.session_state.lista_qtd = []
     st.session_state.lista_problemas = []
