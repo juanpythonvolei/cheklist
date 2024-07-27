@@ -37,7 +37,7 @@ if usuario:
             st.warning('Novo Checklist Iniciado ✔️')
             st.markdown(f'<div class="my-square">Seja Bem-vindo, {usuario}</div>', unsafe_allow_html=True)
 
-def criar_pdf_em_memoria(dados, df, lista_de_imagens):
+def criar_pdf_em_memoria(dados, lista_de_imagens):
     df = pd.DataFrame(dados)
 
     class PDF(FPDF):
