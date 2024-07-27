@@ -6,6 +6,8 @@ def adicionar_imagem(nome_texto,nome_link,lista):
         with open(f'captured_image_{nome_link}.jpg', 'wb') as f:
             f.write(image.getvalue())
         link = f"./captured_image_{nome_link}.jpg"
-        lista.append(link)
+       
+        exiibicao = st.image(image, caption=f"Imagem {nome_link}", use_column_width=True)
+        lista.append(exiibicao) 
     else:
         pass
