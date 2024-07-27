@@ -37,7 +37,7 @@ if usuario:
             st.warning('Novo Checklist Iniciado ✔️')
             st.markdown(f'<div class="my-square">Seja Bem-vindo, {usuario}</div>', unsafe_allow_html=True)
 
-def criar_pdf_em_memoria(dados):
+def criar_pdf_em_memoria(dados, df, lista_de_imagens):
     df = pd.DataFrame(dados)
 
     class PDF(FPDF):
@@ -45,7 +45,7 @@ def criar_pdf_em_memoria(dados):
             self.set_font('Arial', 'B', 12)
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
 
-        def add_table(self, df, st.session_state.lista_imagens):
+        def add_table(self):
                 self.set_font('Arial', '', 12)
                 col_width = 80  # Defina a largura desejada para as células
             
@@ -802,7 +802,7 @@ st.session_state.lista_imagens.extend([''] * (max_length - len(st.session_state.
 dict_resposta = {'Item ok': st.session_state.lista_qtd, 'Item Anormal': st.session_state.lista_problemas}
 
 
-pdf_buffer = criar_pdf_em_memoria(dict_resposta)
+pdf_buffer = criar_pdf_em_memoria(dict_resposta,st.session_state.lista_imagens)
 
 
 
