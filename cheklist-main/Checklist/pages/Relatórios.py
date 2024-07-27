@@ -9,7 +9,7 @@ from Estatísticas import estatistica
 import requests
 import google.generativeai as genai
 from streamlit_option_menu import option_menu
-from Adicionar_Imagens import 
+from Adicionar_Imagens import exibir_imagem
 css_style = """
             .my-square {
                 background-color:#0275b1;
@@ -140,4 +140,6 @@ elif opcao_selecionada == 'Ver Checklists':
   tabela = pd.DataFrame(dict)
   st.table(tabela)                              
   if len(lista_imagens) > 0:
+              for item in lista_imagens:
+                          exibir_imagem(item)
               
