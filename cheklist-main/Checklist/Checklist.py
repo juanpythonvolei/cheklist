@@ -40,7 +40,7 @@ if usuario:
 def criar_pdf_em_memoria(dados):
     lista2 = []        
     df = pd.DataFrame(dados)
-
+    self.page_length = 200        
     class PDF(FPDF):
         def header(self):
             self.set_font('Arial', 'B', 12)
