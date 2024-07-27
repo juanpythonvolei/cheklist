@@ -39,7 +39,7 @@ except:
             st.warning('Não há Checklists para analisar')
 if opcao_selecionada == 'Dados Gerais':
           
-for item in dados:
+            for item in dados:
                                           lista.append(item)          
                                           Checklist = dados[f'{item}']
                                           for elemento in Checklist:
