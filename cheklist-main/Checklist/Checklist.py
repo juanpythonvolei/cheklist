@@ -55,7 +55,7 @@ def criar_pdf_em_memoria(dados):
                 self.ln()             
                  # Adicione a imagem apenas uma vez por linha
         
-        def add_image(self, image_path, x, y, width, height):
+        def add_image(self, imagens, x, y, width, height):
                     for item in imagens:
                                 if item == '...':
                                             pass
