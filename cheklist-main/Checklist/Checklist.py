@@ -64,11 +64,10 @@ def criar_pdf_em_memoria(dados):
                         lista_2 = []             
                         for item in lista_de_imagens:
                                     if item != '...':
-
-                                                            lista_2.append(item)
-                                    else:
                                                 pass
-                        self.image(lista_2[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
+                                    else:
+                                                lista_de_imagens.remove(item)
+                        self.image(lista_de_imagens[i], x=self.w - col_width, y=self.y, w=col_width, h=10)
                 self.ln()                
     lista_de_imagens = st.session_state.lista_imagens        
     pdf = PDF()
