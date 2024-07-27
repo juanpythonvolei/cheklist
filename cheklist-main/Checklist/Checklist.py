@@ -42,9 +42,6 @@ def criar_pdf_em_memoria(dados):
     df = pd.DataFrame(dados)
             
     class PDF(FPDF):
-        def __init__(self):
-                    super().__init__()
-                    self.page_length = 200        
         def header(self):
             self.set_font('Arial', 'B', 12)
             self.cell(0, 10, f'Relatório de Checklist. Usuário: {usuario}. {data_hora_formatada}', 0, 1, 'C')
@@ -69,13 +66,9 @@ def criar_pdf_em_memoria(dados):
         # Adicione a imagem ao PDF
                     
                     for item in lista2:
-                                if self.y + height > self.page_length:
-                                    self.add_page()  # Crie uma nova página
-                                    self.set_y(0)
-                                else:    
-                                            self.image(item, x, self.y, width, height)
+                                            self.image(item, x,y, width, height)
                                             x += 50
-                                            self.y += height               
+
     pdf = PDF()
     pdf.add_page()
     pdf.add_table(df)
