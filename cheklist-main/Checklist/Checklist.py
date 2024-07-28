@@ -852,6 +852,11 @@ elif seletor == 'Excluir Checklist':
             texto_excluir = st.text_input(label = 'Insira a Senha do Administrador')
             if texto_excluir == str(2314):
                         usuario = st.selectbox('Usuário', ['Juan Zonho', 'Jonatan Lima','Cesar Fusel','Luiz Felipe'])
+                        for item in dados:          
+                                                          lista.append(item)          
+                                                          Checklist = dados[f'{item}']
+                                                          for elemento in Checklist:
+                                                                   espec = Checklist[f'{elemento}']
             elif texto_excluir == '':
                         st.warning('Você ainda não inseriu a senha')
             else:
