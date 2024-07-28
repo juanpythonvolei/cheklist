@@ -842,7 +842,7 @@ with col2:
             botao_excluir = st.button('Excluir Checklists')
             if botao_excluir:
                                       texto_excluir = st.text_input(label='Insira a senha de Administrador')
-                                      if texto_excluir == str(2143):
+                                      if texto_excluir == 2143:
                                                   lista =[]
                                                   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')           
                                                   roteiro = requiscao.json()
