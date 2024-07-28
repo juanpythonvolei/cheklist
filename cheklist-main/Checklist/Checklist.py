@@ -847,7 +847,7 @@ if seletor == 'Novo Checklist':
                                                                         
             
                                                             
-elif seletor == 'Excluir Checklists':
+elif seletor == 'Excluir Checklist':
             image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
             texto_excluir = st.text_input(label = 'Insira a Senha do Administrador')
             if texto_excluir == 2314:
