@@ -865,7 +865,7 @@ elif seletor == 'Excluir Checklist':
                                                                    if usuario == usuario2:
                                                                                lista2.append(item)
                                                                    else:
-                                                                               st.warning(f'Sem dados para o usuario {usuario2}')
+                                                                               pass
                         data = st.selectbox('Data', lista2)
             elif texto_excluir == '':
                         st.warning('Você ainda não inseriu a senha')
