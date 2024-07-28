@@ -876,7 +876,9 @@ elif seletor == 'Excluir Checklist':
                                         
                                         # Exclui o usuário
                                         usuario_ref.delete()
-                                        st.warning('Conjunto excluido')       
+                                        st.warning('Conjunto excluido')    
+                        else:
+                                    pass
             elif texto_excluir == '':
                         st.warning('Você ainda não inseriu a senha')
             else:
