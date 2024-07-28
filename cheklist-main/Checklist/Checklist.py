@@ -845,7 +845,7 @@ with col2:
                                       if texto_excluir == str(2143):
                                                   st.warning('Acesso Liberado')
                                       elif texto_excluir == '':
-                                                  st.warning('Insira o Còdigo de administrador')
+                                                  st.warning('Você ainda não inseriu o còdigo de administrador')
                                       else:
                                                   st.warning('Acesso Negado')
                                                 
