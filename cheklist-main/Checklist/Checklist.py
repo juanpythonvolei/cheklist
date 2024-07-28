@@ -867,6 +867,16 @@ elif seletor == 'Excluir Checklist':
                                                                    else:
                                                                                pass
                         data = st.selectbox('Data', lista2)
+                        excluir = st.button('Excluir Checklist')
+                        if excluir: 
+                                    try:
+                            
+                                        # Referência ao nó do usuário que você deseja excluir
+                                        usuario_ref = db.reference(f'Checklists/{data}')
+                                        
+                                        # Exclui o usuário
+                                        usuario_ref.delete()
+                                        st.warning('Conjunto excluido')       
             elif texto_excluir == '':
                         st.warning('Você ainda não inseriu a senha')
             else:
