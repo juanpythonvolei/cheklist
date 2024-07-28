@@ -826,17 +826,18 @@ pdf_buffer = criar_pdf_em_memoria(dict_resposta)
 
 
 
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+            botao_email = st.button('Enviar Cheklist')
+            if botao_email:
+                enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer,lista = st.session_state.lista_imagens)       
+                estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada,imagem=st.session_state.lista_imagens)        
+                st.session_state.lista_qtd = []
+                st.session_state.lista_problemas = []
+                st.session_state.lista_imagens = []        
+                st.session_state.mostrar_reclamacao = False
+                reset_checkboxes()
+                st.warning('Relatório Enviado')
+with col2:
+            st.button('excluir Checklists')
 
-botao_email = st.button('Enviar Cheklist')
-if botao_email:
-    enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer,lista = st.session_state.lista_imagens)       
-    estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada,imagem=st.session_state.lista_imagens)        
-    st.session_state.lista_qtd = []
-    st.session_state.lista_problemas = []
-    st.session_state.lista_imagens = []        
-    st.session_state.mostrar_reclamacao = False
-    reset_checkboxes()
-    st.warning('Relatório Enviado')
-    pdf_botao = st.button('Abir Relatório')        
-    if pdf_botao:
-                webbrowser.open(pdf_buffer)
