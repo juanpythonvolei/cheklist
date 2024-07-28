@@ -843,20 +843,15 @@ with col2:
 
             botao_excluir = st.button('Excluir Checklists')
             if botao_excluir:
-                                      texto_excluir = st.text_input(label='Insira a senha de Administrador')
-                                      st.session_state.senha_admin = texto_excluir          
-                                      if st.session_state.senha_admin == 2143:
-                                                  lista =[]
-                                                  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')           
-                                                  roteiro = requiscao.json()
-                                                  dados = roteiro['Checklists']
-                                                  for item in dados:
+                        lista =[]
+                        requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')           
+                        roteiro = requiscao.json()
+                        dados = roteiro['Checklists']
+                        for item in dados:
                                                         lista.append(item)          
                                        
-                          
-                                                  data = st.selectbox("Selecione uma data",lista)          
-                                      elif st.session_state.senha_admin == '':
-                                                  st.warning('Você ainda não inseriu o còdigo de administrador')
-                                      elif st.session_state.senha_admin != 2143:
-                                                  st.warning('Acesso Negado')
+                        data = st.selectbox("Selecione uma data",lista)  
+                                                                                                                                                          
+                                                            
+
                                                 
