@@ -10,6 +10,8 @@ from Adicionar_Imagens import adicionar_imagem
 import  webbrowser
 import requests
 from streamlit_option_menu import option_menu
+import firebase_admin
+from firebase_admin import credentials, firestore,db
 css_style = """
             .my-square {
                 background-color:#0275b1;
