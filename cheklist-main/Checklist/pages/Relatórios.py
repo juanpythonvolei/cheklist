@@ -104,7 +104,8 @@ try:
               
                          
             elif seletor2 == 'Ver Checklists':
-                        
+                          st.divider()
+                          st.divider()          
                           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                           roteiro = requiscao.json()
                           dados = roteiro['Checklists']
