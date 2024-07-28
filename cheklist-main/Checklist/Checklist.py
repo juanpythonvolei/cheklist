@@ -850,7 +850,7 @@ if seletor == 'Novo Checklist':
 elif seletor == 'Excluir Checklist':
             
             texto_excluir = st.text_input(label = 'Insira a Senha do Administrador')
-            if texto_excluir == 2314:
+            if texto_excluir == str(2314):
                         st.warning('Acesso liberado')
             elif texto_excluir == '':
                         st.warning('Você ainda não inseriu a senha')
