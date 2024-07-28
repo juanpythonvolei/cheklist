@@ -98,7 +98,8 @@ if 'lista_qtd' not in st.session_state:
     st.session_state.lista_qtd = []
 if 'lista_problemas' not in st.session_state:
     st.session_state.lista_problemas = []
-
+if 'senha_admin' not in st.session_state:
+    st.session_state.senha_admin = None                        
 def reset_checkboxes():
     for key in st.session_state.keys():
         if key.startswith('checkbox_'):
@@ -839,8 +840,7 @@ with col1:
                 reset_checkboxes()
                 st.warning('Relatório Enviado')
 with col2:
-            if 'senha_admin' not in st.session_state:
-                st.session_state.senha_admin = None
+
             botao_excluir = st.button('Excluir Checklists')
             if botao_excluir:
                                       texto_excluir = st.text_input(label='Insira a senha de Administrador')
