@@ -30,7 +30,7 @@ agora_brasilia = datetime.now(fuso_horario_brasilia)
 data_hora_formatada = agora_brasilia.strftime("%Y-%m-%d %H:%M:%S")
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-seletor  = option_menu("Selecione uma opção", ["Novo Checklist", "Excluir Checklist"], default_index=1)
+seletor  = option_menu("Selecione uma opção", ["Novo Checklist", "Excluir Checklist"],icons = ['add','delete'], default_index=1)
 if seletor == 'Novo Checklist':
             usuario = st.selectbox('Quem é você?', ['Juan Zonho', 'Jonatan Lima','Cesar Fusel','Luiz Felipe'])
              
