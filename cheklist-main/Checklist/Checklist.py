@@ -839,7 +839,7 @@ with col1:
                 reset_checkboxes()
                 st.warning('Relatório Enviado')
 with col2:
-            botao_excluir = st.button('Excluir Checklists)
+            botao_excluir = st.button('Excluir Checklists')
             if botao_excluir:
                                       texto_excluir = st.text_input(label='Insira a senha de Administrador')
                                       if int(texto_excluir) == 2143:
