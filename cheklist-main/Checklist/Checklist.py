@@ -8,7 +8,7 @@ import pytz
 from Estatísticas import estatistica
 from Adicionar_Imagens import adicionar_imagem
 import  webbrowser
-
+import requests
 css_style = """
             .my-square {
                 background-color:#0275b1;
