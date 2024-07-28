@@ -851,7 +851,7 @@ if seletor == 'Novo Checklist':
                                                             
 elif seletor == 'Excluir Checklist':
             
-            texto_excluir = st.text_input(label = 'Insira a Senha do Administrador')
+            texto_excluir = st.text_input(label = 'Insira a Senha do Administrador',type = 'password')
             if texto_excluir == str(2314):
                         lista2 = []
                         usuario2 = st.selectbox('Usuário', ['Juan Zonho', 'Jonatan Lima','Cesar Fusel','Luiz Felipe'])
