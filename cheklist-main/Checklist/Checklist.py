@@ -842,6 +842,6 @@ with col2:
             botao_excluir = st.button('Excluir Checklists')
             if botao_excluir:
                                       texto_excluir = st.text_input(label='Insira a senha de Administrador')
-                                      if int(texto_excluir) == 2143:
+                                      if texto_excluir == 2143:
                                                   st.warning('Acesso Liberado')
 
