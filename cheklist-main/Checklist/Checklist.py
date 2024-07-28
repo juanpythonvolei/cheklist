@@ -7,7 +7,7 @@ from datetime import datetime
 import pytz
 from Estatísticas import estatistica
 from Adicionar_Imagens import adicionar_imagem
-
+import  webbrowser
 
 css_style = """
             .my-square {
@@ -837,3 +837,6 @@ if botao_email:
     st.session_state.mostrar_reclamacao = False
     reset_checkboxes()
     st.warning('Relatório Enviado')
+    pdf_botao = st.button('Abir Relatório')        
+    if pdf_botao:
+                webbrowser.open(pdf_buffer)
