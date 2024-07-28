@@ -851,8 +851,7 @@ with col2:
                                                         lista.append(item)          
                                        
                           
-                          
-                          seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)          
+                                                  data = st.selectbox("Selecione uma data",lista)          
                                       elif texto_excluir == '':
                                                   st.warning('Você ainda não inseriu o còdigo de administrador')
                                       else:
