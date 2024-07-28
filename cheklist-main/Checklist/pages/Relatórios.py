@@ -35,7 +35,8 @@ try:
             roteiro = requiscao.json()
             dados = roteiro['Checklists']
             if seletor2 == 'Dados Gerais':
-                      
+                          st.divider()
+                          st.divider()          
                           for item in dados:          
                                                       lista.append(item)          
                                                       Checklist = dados[f'{item}']
@@ -67,6 +68,8 @@ try:
 
 
             elif seletor2 == 'Item com mais ocorrências':
+              st.divider()
+              st.divider()                      
               lista_item_repetido =[]
               lista_normais = []
               lista = []
