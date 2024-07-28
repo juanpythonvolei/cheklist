@@ -827,10 +827,9 @@ pdf_buffer = criar_pdf_em_memoria(dict_resposta)
 
 
 
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-            botao_email = st.button('Enviar Cheklist')
-            if botao_email:
+
+botao_email = st.button('Enviar Cheklist')
+if botao_email:
                 enviar_emaail(dados=dict_resposta,usuario=usuario,pdf_buffer=pdf_buffer,lista = st.session_state.lista_imagens)       
                 estatistica(nao=st.session_state.lista_problemas,sim=st.session_state.lista_qtd,usuario=usuario,data=data_hora_formatada,imagem=st.session_state.lista_imagens)        
                 st.session_state.lista_qtd = []
@@ -839,18 +838,7 @@ with col1:
                 st.session_state.mostrar_reclamacao = False
                 reset_checkboxes()
                 st.warning('Relatório Enviado')
-with col2:
 
-            botao_excluir = st.button('Excluir Checklists')
-            if botao_excluir:
-                        lista =[]
-                        requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')           
-                        roteiro = requiscao.json()
-                        dados = roteiro['Checklists']
-                        for item in dados:
-                                                        lista.append(item)          
-                                       
-                        data = st.selectbox("Selecione uma data",lista)  
                                                                                                                                                           
                                                             
 
