@@ -28,7 +28,7 @@ lista_normais = []
 lista = []
 lista_problema = []
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-seletor2  = option_menu("Selecione uma Opção", ['Dados Gerais','Item com mais ocorrências','Ver Checklists'],icons= ['computer','file','checklist'], default_index=1)
+seletor2  = option_menu("Selecione uma Opção", ['Dados Gerais','Item com mais ocorrências','Ver Checklists'],icons= ['world','file','notes'], default_index=1)
 lista_nomes = []
 try:
             requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
