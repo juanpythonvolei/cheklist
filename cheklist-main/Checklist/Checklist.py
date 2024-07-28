@@ -844,4 +844,6 @@ with col2:
                                       texto_excluir = st.text_input(label='Insira a senha de Administrador')
                                       if texto_excluir == str(2143):
                                                   st.warning('Acesso Liberado')
-
+                                      else:
+                                                  st.warning('Acesso Negado')
+                                                
