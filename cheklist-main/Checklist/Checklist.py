@@ -855,8 +855,8 @@ with col2:
                                        
                           
                                                   data = st.selectbox("Selecione uma data",lista)          
-                                      elif texto_excluir == '':
+                                      elif st.session_state.senha_admin == '':
                                                   st.warning('Você ainda não inseriu o còdigo de administrador')
-                                      else:
+                                      elif st.session_state.senha_admin != 2143:
                                                   st.warning('Acesso Negado')
                                                 
