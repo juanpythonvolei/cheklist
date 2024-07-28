@@ -852,7 +852,7 @@ elif seletor == 'Excluir Checklist':
             texto_excluir = st.text_input(label = 'Insira a Senha do Administrador')
             if texto_excluir == str(2314):
                         lista2 = []
-                        usuario = st.selectbox('Usuário', ['Juan Zonho', 'Jonatan Lima','Cesar Fusel','Luiz Felipe'])
+                        usuario2 = st.selectbox('Usuário', ['Juan Zonho', 'Jonatan Lima','Cesar Fusel','Luiz Felipe'])
                         requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                         roteiro = requiscao.json()
                         dados = roteiro['Checklists']
@@ -862,8 +862,10 @@ elif seletor == 'Excluir Checklist':
                                                           for elemento in Checklist:
                                                                    espec = Checklist[f'{elemento}']
                                                                    usuario = espec['Usuário']
-                                                                   if usuario == usuario:
+                                                                   if usuario == usuario2:
                                                                                lista2.append(item)
+                                                                   else:
+                                                                               st.warning(f'Sem dados para o usuario {usuario2}')
                         data = st.selectbox('Data', lista2)
             elif texto_excluir == '':
                         st.warning('Você ainda não inseriu a senha')
