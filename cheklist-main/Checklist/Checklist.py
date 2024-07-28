@@ -843,7 +843,16 @@ with col2:
             if botao_excluir:
                                       texto_excluir = st.text_input(label='Insira a senha de Administrador')
                                       if texto_excluir == str(2143):
-                                                  st.selctbo
+                                                  lista =[]
+                                                  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')           
+                                                  roteiro = requiscao.json()
+                                                  dados = roteiro['Checklists']
+                                                  for item in dados:
+                                                        lista.append(item)          
+                                       
+                          
+                          
+                          seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)          
                                       elif texto_excluir == '':
                                                   st.warning('Você ainda não inseriu o còdigo de administrador')
                                       else:
