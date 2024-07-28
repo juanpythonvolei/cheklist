@@ -28,14 +28,13 @@ lista_normais = []
 lista = []
 lista_problema = []
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-opcao_selecionada = st.selectbox("Selecione uma Opção",['Dados Gerais','Item com mais ocorrências','Ver Checklists'])
-
+seletor2  = option_menu("Selecione uma Opção", ['Dados Gerais','Item com mais ocorrências','Ver Checklists'], default_index=1)
 lista_nomes = []
 try:
             requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
             roteiro = requiscao.json()
             dados = roteiro['Checklists']
-            if opcao_selecionada == 'Dados Gerais':
+            if seletor2 == 'Dados Gerais':
                       
                           for item in dados:          
                                                       lista.append(item)          
@@ -67,7 +66,7 @@ try:
                           st.markdown(f'<div class="my-square">Percentual de Positividade Total: {percentual:.2f} %</div>', unsafe_allow_html=True)
 
 
-            elif opcao_selecionada == 'Item com mais ocorrências':
+            elif seletor2 == 'Item com mais ocorrências':
               lista_item_repetido =[]
               lista_normais = []
               lista = []
@@ -104,7 +103,7 @@ try:
                                                          
               
                          
-            elif opcao_selecionada == 'Ver Checklists':
+            elif seletor2 == 'Ver Checklists':
                         
                           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                           roteiro = requiscao.json()
