@@ -843,7 +843,7 @@ with col2:
             if botao_excluir:
                                       texto_excluir = st.text_input(label='Insira a senha de Administrador')
                                       if texto_excluir == str(2143):
-                                                  st.warning('Acesso Liberado')
+                                                  st.selctbo
                                       elif texto_excluir == '':
                                                   st.warning('Você ainda não inseriu o còdigo de administrador')
                                       else:
