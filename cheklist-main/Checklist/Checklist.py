@@ -839,10 +839,13 @@ with col1:
                 reset_checkboxes()
                 st.warning('Relatório Enviado')
 with col2:
+            if 'senha_admin' not in st.session_state:
+                st.session_state.senha_admin = None
             botao_excluir = st.button('Excluir Checklists')
             if botao_excluir:
                                       texto_excluir = st.text_input(label='Insira a senha de Administrador')
-                                      if texto_excluir == 2143:
+                                      st.session_state.senha_admin = texto_excluir          
+                                      if st.session_state.senha_admin == 2143:
                                                   lista =[]
                                                   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')           
                                                   roteiro = requiscao.json()
