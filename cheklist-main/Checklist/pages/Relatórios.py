@@ -12,7 +12,7 @@ from streamlit_option_menu import option_menu
 from Adicionar_Imagens import exibir_imagem
 css_style = """
             .my-square {
-                background-color:#0275b1;
+                background-color:#ff0000;
                 border-radius: 10px;
                 display: flex;
                 justify-content: center;
