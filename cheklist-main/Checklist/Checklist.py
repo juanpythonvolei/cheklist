@@ -12,6 +12,7 @@ import requests
 from streamlit_option_menu import option_menu
 import firebase_admin
 from firebase_admin import credentials, firestore,db
+senha_juan = [('Juan','1122'),('Jonatan','1212'),('Cesar','1221'),('luiz Felipe','2211')]
 css_style = """
             .my-square {
                 background-color:#0275b1;
@@ -36,12 +37,17 @@ if seletor == 'Novo Checklist':
              
             st.divider() 
             if usuario:
-                        st.session_state.lista_qtd = []
-                        st.session_state.lista_problemas = []
-                        st.session_state.lista_imagens = []
-                        st.session_state.mostrar_reclamacao = False
-                        st.warning('Novo Checklist Iniciado')
-                        st.markdown(f'<div class="my-square">Seja Bem-vindo, {usuario}</div>', unsafe_allow_html=True)
+                        login = st.text_input(label='Insira seu login')
+                        senha = st.text_input(label='Insira sua senha')
+                        for i in enumerate(lista_usuarios):
+                                    login_2,senha_2 = lista_usuarios[i]
+                                    if login == login_2 and senha == senha_2:
+                                                st.session_state.lista_qtd = []
+                                                st.session_state.lista_problemas = []
+                                                st.session_state.lista_imagens = []
+                                                st.session_state.mostrar_reclamacao = False
+                                                st.warning('Novo Checklist Iniciado')
+                                                st.markdown(f'<div class="my-square">Seja Bem-vindo, {usuario}</div>', unsafe_allow_html=True)
             
             def criar_pdf_em_memoria(dados):
                 lista2 = []        
