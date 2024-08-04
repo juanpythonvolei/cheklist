@@ -12,7 +12,7 @@ import requests
 from streamlit_option_menu import option_menu
 import firebase_admin
 from firebase_admin import credentials, firestore,db
-lista_usuarios = [('Juan','1122'),('Jonatan','1212'),('Cesar','1221'),('luiz Felipe','2211')]
+lista_usuarios = [('Juan Zonho','1122'),('Jonatan','1212'),('Cesar','1221'),('luiz Felipe','2211')]
 css_style = """
             .my-square {
                 background-color:#0275b1;
