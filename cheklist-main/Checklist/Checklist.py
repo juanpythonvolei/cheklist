@@ -853,7 +853,8 @@ if seletor == 'Novo Checklist':
                                                                             reset_checkboxes()
                                                                             st.warning('Relatório Enviado')
             
-                                                                                                                                                                      
+                                    else:
+                                                st.warning('Acesso Negado')
                                                                         
             
                                                             
