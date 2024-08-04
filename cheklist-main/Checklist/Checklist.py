@@ -15,7 +15,7 @@ from firebase_admin import credentials, firestore,db
 lista_usuarios = [('Juan Zonho','1122'),('Jonatan Lima','1212'),('Cesar Fusel','1221'),('Luiz Felipe','2211')]
 css_style = """
             .my-square {
-                background-color:#0275b1;
+                background-color:#ff0000;
                 border-radius: 10px;
                 display: flex;
                 justify-content: center;
