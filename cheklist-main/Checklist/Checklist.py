@@ -40,8 +40,9 @@ if seletor == 'Novo Checklist':
                         senha = st.text_input(label='Insira sua senha')
                         for i in lista_usuarios:
                                     login_2,senha_2 = i
-                                    if usuario == login_2 and senha == senha_2:
-                                                st.warning('Acesso autorizado')
+                                    if usuario == login_2:
+                                                if senha == senha_2:
+                                                            st.warning('Acesso autorizado')
                                                 st.session_state.lista_qtd = []
                                                 st.session_state.lista_problemas = []
                                                 st.session_state.lista_imagens = []
