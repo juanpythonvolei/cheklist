@@ -34,11 +34,11 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 seletor  = option_menu("Selecione uma opção", ["Novo Checklist", "Excluir Checklist"],icons = ['plus','exclude'], default_index=1)
 if seletor == 'Novo Checklist':
             usuario = st.selectbox('Quem é você?', ['Juan Zonho', 'Jonatan Lima','Cesar Fusel','Luiz Felipe'])
-             
+            login = st.text_input(label='Insira seu login')
+            senha = st.text_input(label='Insira sua senha') 
             st.divider() 
             if usuario:
-                        login = st.text_input(label='Insira seu login')
-                        senha = st.text_input(label='Insira sua senha')
+                        
                         for i in enumerate(lista_usuarios):
                                     login_2,senha_2 = lista_usuarios[i]
                                     if login == login_2 and senha == senha_2:
