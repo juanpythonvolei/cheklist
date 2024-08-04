@@ -39,8 +39,8 @@ if seletor == 'Novo Checklist':
             st.divider() 
             if usuario:
                         
-                        for i in enumerate(lista_usuarios):
-                                    login_2,senha_2 = lista_usuarios[i]
+                        for i in lista_usuarios:
+                                    login_2,senha_2 = i
                                     if login == login_2 and senha == senha_2:
                                                 st.session_state.lista_qtd = []
                                                 st.session_state.lista_problemas = []
