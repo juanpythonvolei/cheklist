@@ -113,11 +113,8 @@ try:
                           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                           roteiro = requiscao.json()
                           dados = roteiro['Checklists']
-                          
-                          
                           seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)
-                          for item in dados:
-                                                                  
+                          for item in dados:   
                                                         Checklist = dados[f'{item}']
                                                         for elemento in Checklist:
                                                                espec = Checklist[f'{elemento}']
@@ -133,7 +130,6 @@ try:
                           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                           roteiro = requiscao.json()
                           dados = roteiro['Checklists']
-                          
                           for item in dados:          
                                                           lista.append(item)          
                                                           Checklist = dados[f'{item}']
