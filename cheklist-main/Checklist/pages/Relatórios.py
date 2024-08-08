@@ -109,15 +109,22 @@ try:
             elif seletor2 == 'Ver Checklists':
                           st.divider()
                           st.divider()          
+                          lista = []          
                           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                           roteiro = requiscao.json()
                           dados = roteiro['Checklists']
-                          for item in dados:
-                                                        lista.append(item)          
-                                       
                           
                           data = st.selectbox("Selecione uma data",lista)
-                          seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)          
+                          seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)
+                          for item in dados:
+                                                                  
+                                                        Checklist = dados[f'{item}']
+                                                        for elemento in Checklist:
+                                                               espec = Checklist[f'{elemento}']
+                                                               usuario = espec['Usuário']      
+                                                               if usuario == seletor:
+                                                                        lista.append(item)   
+                                    
                           lista_item_repetido =[]
                           lista_normais = []
                           lista_imagens = []
