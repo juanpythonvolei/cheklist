@@ -114,7 +114,7 @@ try:
                           roteiro = requiscao.json()
                           dados = roteiro['Checklists']
                           
-                          data = st.selectbox("Selecione uma data",lista)
+                          
                           seletor  = option_menu("Usuários", ["Juan Zonho", "Jonatan Lima","Cesar Fusel","Luiz Felipe"], default_index=1)
                           for item in dados:
                                                                   
@@ -124,7 +124,7 @@ try:
                                                                usuario = espec['Usuário']      
                                                                if usuario == seletor:
                                                                         lista.append(item)   
-                                    
+                          data = st.selectbox("Selecione uma data",lista)          
                           lista_item_repetido =[]
                           lista_normais = []
                           lista_imagens = []
