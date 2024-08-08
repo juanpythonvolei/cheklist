@@ -53,7 +53,7 @@ def enviar_emaail(dados,usuario,pdf_buffer,lista):
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, msg.as_string())
-def enviar_emaail2(dados,usuario,pdf_buffer):
+def enviar_emaail2(dados,usuario,pdf_buffer,lista):
 
 
     df = pd.DataFrame(dados)
